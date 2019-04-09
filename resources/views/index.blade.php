@@ -97,52 +97,48 @@
 		</div>
 	</div>
 	<!-- publicaciones -->
-	<div class="row">
-	@if(isset($question))
-
-	@foreach($question as $n)
-	@if($n->id_usuarioFO==strval(auth()->user()->id))
-	  <div class="col-md-4">
-	    <div class="thumbnail">
-	      <img src="http://www.laescapada.mx/wp-content/uploads/2016/10/IMG_1432-1-242x200.jpg" alt="100%x200">
-	      <div class="caption">
-	        <p align="right">Publicado el  {{$n->created_at}} Publicación N°.{{$n->id}}</p>
-	        <p align="right">Publicado Por: 
-	        	<a href="">
-	        	@foreach($user as $k)
-		        	@if($n->id_usuarioFO==$k->id)
-		        	{{$k->name}}
-		        	{{$k->apellidos}}
-		        	@endif
-		        @endforeach
-	        	</a>
-	        </p>
-	        <h3 align="center">{{$n->tituloquest}}</h3> 
-	        <a href="#">
-				<span class="label label-warning">{{$n->localidad}}</span>
-			</a>
-			<a href="#">
-				<span class="label label-default">{{$n->etiket1}}</span>
-			</a>
-			<a href="#">
-				<span class="label label-default">{{$n->etiket2}}</span>
-			</a>
-			<a href="#">
-				<span class="label label-default">{{$n->etiket3}}</span>
-			</a>
-	        <p>{{$n->opinion}}</p>
-	        <p align="right">Precio s./{{$n->precio}}.00</p>
-	        <p align="right">
-	        	<a href="#" class="btn btn-primary" role="button">Editar</a> 
-	        	<a href="#" class="btn btn-default" role="button">Eliminar</a>
-	        </p>
-	      </div>
-	    </div>
-	  </div>
-	@endif
-	@endforeach
+	@if(isset($producto))
+  <div class="row">
+  @foreach($producto as $n)
+    @if($n->id_usuarioFO==strval(auth()->user()->id))
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="http://www.laescapada.mx/wp-content/uploads/2016/10/IMG_1432-1-242x200.jpg" alt="100%x200">
+        <div class="caption">
+          <p align="right">Publicado el  {{$n->created_at}} Publicación N°.{{$n->id}}</p>
+          <p align="right">Publicado Por: 
+            <a href="">
+            @foreach($user as $k)
+              @if($n->id_usuarioFO==$k->id)
+              {{$k->name}}
+              {{$k->apellidos}}
+              @endif
+            @endforeach
+            </a>
+          </p>
+          <h3 align="center">{{$n->tituloquest}}</h3> 
+          <a href="#">
+        <span class="label label-warning">{{$n->localidad}}</span>
+      </a>
+      <a href="#">
+        <span class="label label-default">{{$n->etiket1}}</span>
+      </a>
+      <a href="#">
+        <span class="label label-default">{{$n->etiket2}}</span>
+      </a>
+      <a href="#">
+        <span class="label label-default">{{$n->etiket3}}</span>
+      </a>
+          <p>{{$n->opinion}}</p>
+          <p align="right">Precio s./{{$n->precio}}.00</p>
+          <p><a href="#" class="btn btn-primary" role="button">Reservar comida</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+    @endif
+  @endforeach
+  </div>
 
 	@endif
-	</div>
 </div>
 @endsection
