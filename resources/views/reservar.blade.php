@@ -97,10 +97,9 @@
     </div>
   </div>
   <!-- publicaciones -->
-  @if(isset($publicacion))
-
+  @if(isset($producto))
   <div class="row">
-  @foreach($publicacion as $n)
+  @foreach($producto as $n)
     @if($n->id_usuarioFO!=strval(auth()->user()->id))
     <div class="col-md-4">
       <div class="thumbnail">
