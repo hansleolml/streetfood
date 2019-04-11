@@ -8,6 +8,7 @@ Route::get('/entrar', function () {
 
 Auth::routes();
 
+
 //guest ->si no esta conectado , auth ->si esta conectado
 //--------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth'],function(){
@@ -15,6 +16,9 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::get('/miperfil', 'perfilController@index');
     Route::resource('/producto','productoController');
     Route::resource('/producto/eliminar','productoController@destroy');
+    Route::get('/editar', function () {
+	    return view('editar');
+	});
 });
 
 
