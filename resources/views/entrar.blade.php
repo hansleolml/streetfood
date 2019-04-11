@@ -41,7 +41,7 @@
         <h1 class="h3 mb-3 font-weight-normal">INGRESA</h1>
         <p>Bienvenido a Street Food, inicia sesion con tu dirección email y tu contraseña, si no estas registrado <br> <a href="{{ route('register') }}">Registrate aquí</a></p>
       </div>
-
+      @include('partials.flash')
       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         <div class="col-sm-12">
             <input type="email" name="email" value="{{ old('email') }}" class="form-control input-sm" id="inputEmail3" placeholder="Correo" required autofocus>
