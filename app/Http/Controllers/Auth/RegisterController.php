@@ -91,6 +91,6 @@ class RegisterController extends Controller
     {
         User::wherellave_acti($llave_acti)->firstOrFail()->hasVerified();
 
-        return redirect('login')->with('status','Tu cuenta ha sido confimada :)');
+        return redirect('entrar')->with('status','Tu cuenta ha sido confimada :)');
     }
 }
