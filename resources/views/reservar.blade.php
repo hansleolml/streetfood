@@ -24,73 +24,16 @@
             <h3 class="panel-title">¡Busca un plato de comida!</h3>
           </div>
           <div class="panel-body">
-          <form class="form-horizontal" role="form" method="POST" action="{{url('hacerpregu')}}">
+          <form class="form-inline">
             {{csrf_field()}}
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Nombre del plato</label>
-                <div class="col-sm-10">
+                  <label for="inputEmail3">Nombre del plato</label>
                   <input type="text" class="form-control" name="tituPregu" value="{{old('tituPregu')}}" id="inputEmail3" placeholder="Ingresa el nombre del plato" required>
-
                    @if($errors->has('tituPregu'))
                   <span style="color:red;">{{$errors -> first('tituPregu')}}</span>
                   @endif
-
-                </div>
               </div>
-              <div class="" id="hacerquest" hidden="true">
-                <div class="form-group">
-                  <label for="tokenfield" class="col-sm-2 control-label">Etiquetas</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="etikPregu" value="{{old('etikPregu')}}" id="tokenfield"
-                    data-limit="4" placeholder="Etiquetas como criolla, peruana, selvatica ,etc">
-                    @if($errors->has('etikPregu'))
-                    <span style="color:red;">{{$errors -> first('etikPregu')}}</span>
-                    @endif
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="miopinion" class="col-sm-2 control-label">Ingredientes:</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control" name="myopinion" id="miopinion" placeholder="Describe los ingredientes que usaste en la preparación (opcional)" rows="3">{{old('myopinion')}}</textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="alter1" class="col-sm-2 control-label">Introduce alguna promoción</label>
-                  <div class="col-sm-10" id="alterna">
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <input type="text" class="form-control" name="alterPregu1" value="{{old('alterPregu1')}}" id="alter1" placeholder="Agrega promociones" required>
-                        @if($errors->has('alterPregu1'))
-                        <span style="color:red;">{{$errors -> first('alterPregu1')}}</span>
-                        @endif
-                      </div>
-                      <button type="button" class="btn btn-success btn-sm" id="alternativas">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                      </button>             
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="locality" class="col-sm-2 control-label">Localidad</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="locality" value="{{old('locality')}}" id="locality" placeholder="Ingrese en que distrito esta disponible">
-                    @if($errors->has('locality'))
-                    <span style="color:red;">{{$errors -> first('locality')}}</span>
-                    @endif
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="precio" class="col-sm-2 control-label">Precio</label>
-                  <div class="col-sm-2">
-                    <input type="text" class="form-control" name="precio" value="" id="precio" placeholder="S/.">   
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-primary">Publicar</button>
-                  </div>
-                </div>
-              </div>
+              <a class="btn btn-primary">Buscar</a>
           </form>
         </div>
       </div>

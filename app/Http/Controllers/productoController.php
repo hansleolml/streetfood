@@ -64,6 +64,7 @@ class productoController extends Controller
         $producto->ingredientes=$request->get('ingredientes');
         $producto->promocion=$request->get('promocion');
         $producto->precio=$request->get('precio');
+        $producto->cantidad=$request->get('cantidad');
 
         for ($i=1; $i <=$tamEti ; $i++) { //añade las etiquetas segun el numero
             $nr=$i-1;

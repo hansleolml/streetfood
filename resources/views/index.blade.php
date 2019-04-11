@@ -82,7 +82,13 @@
 					  		<div class="form-group">
 						    	<label for="precio" class="col-sm-2 control-label">Precio</label>
 							    <div class="col-sm-2">
-							    	<input type="text" class="form-control" name="precio" value="" id="precio" placeholder="S/.">		
+							    	<input type="text" class="form-control" name="precio" value="" id="precio" placeholder="S/.">	
+							    </div>
+					  		</div>
+					  		<div class="form-group">
+						    	<label for="cantidad" class="col-sm-2 control-label">Cantidad</label>
+							    <div class="col-sm-2">
+							    	<input type="text" class="form-control" name="cantidad" value="" id="cantidad" placeholder="Nro Platos">		
 							    </div>
 					  		</div>
 					  		<div class="form-group">
@@ -132,7 +138,7 @@
       </a>
           <p>{{$n->ingredientes}}</p>
           <p align="right">Precio s./{{$n->precio}}.00</p>
-          <p>
+          <p align="right">Nro de platos :  {{$n->cantidad}} </p>
           	<a href="#" class="btn btn-primary" role="button">Editar producto</a>
           	<form action="{{url('producto',$n->id)}}" method="POST">
           		{{csrf_field()}}

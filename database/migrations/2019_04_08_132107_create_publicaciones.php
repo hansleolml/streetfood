@@ -29,6 +29,7 @@ class CreatePublicaciones extends Migration
             $table->text('etiket2')->nullable();
             $table->text('etiket3')->nullable();
             $table->text('etiket4')->nullable();
+            $table->integer('cantidad')->nullable();
             $table->string('localidad')->nullable();
             $table->timestamps();
         });
