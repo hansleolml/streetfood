@@ -1,10 +1,7 @@
 <?php
 
 
-Route::get('/entrar', function () {
-    return view('entrar');
-});
-
+Route::get('/entrar', 'indexController@index');
 
 Auth::routes();
 
