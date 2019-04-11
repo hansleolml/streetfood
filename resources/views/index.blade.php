@@ -97,6 +97,7 @@
 		</div>
 	</div>
 	<!-- publicaciones -->
+	<h3>Tus productos publicados</h3>	
 	@if(isset($producto))
   <div class="row">
   @foreach($producto as $n)
@@ -116,7 +117,7 @@
             @endforeach
             </a>
           </p>
-          <h3 align="center">{{$n->tituloquest}}</h3> 
+          <h3 align="center">{{$n->tituProdu}}</h3> 
           <a href="#">
         <span class="label label-warning">{{$n->localidad}}</span>
       </a>
@@ -129,9 +130,16 @@
       <a href="#">
         <span class="label label-default">{{$n->etiket3}}</span>
       </a>
-          <p>{{$n->opinion}}</p>
+          <p>{{$n->ingredientes}}</p>
           <p align="right">Precio s./{{$n->precio}}.00</p>
-          <p><a href="#" class="btn btn-primary" role="button">Reservar comida</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>
+          	<a href="#" class="btn btn-primary" role="button">Editar producto</a>
+          	<form action="{{url('producto',$n->id)}}" method="POST">
+          		{{csrf_field()}}
+          		<input type="hidden" name="_method" value="DELETE">
+          		<button class="btn btn-button">borrar</button>
+          	</form>
+          </p>
         </div>
       </div>
     </div>

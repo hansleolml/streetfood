@@ -116,7 +116,7 @@
             @endforeach
             </a>
           </p>
-          <h3 align="center">{{$n->tituloquest}}</h3> 
+          <h3 align="center">{{$n->tituProdu}}</h3> 
           <a href="#">
         <span class="label label-warning">{{$n->localidad}}</span>
       </a>
@@ -129,7 +129,7 @@
       <a href="#">
         <span class="label label-default">{{$n->etiket3}}</span>
       </a>
-          <p>{{$n->opinion}}</p>
+          <p>{{$n->ingredientes}}</p>
           <p align="right">Precio s./{{$n->precio}}.00</p>
           <p><a href="#" class="btn btn-primary" role="button">Reservar comida</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
         </div>

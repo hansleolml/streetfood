@@ -13,7 +13,8 @@ Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
  
 	Route::get('/miperfil', 'perfilController@index');
-    Route::resource('/hacerpregu','productoController');
+    Route::resource('/producto','productoController');
+    Route::resource('/producto/eliminar','productoController@destroy');
 });
 
 
