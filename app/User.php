@@ -9,9 +9,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public function roles(){
-        return $this->belongsToMany('App\Role')
-    }
     /**
      * The attributes that are mass assignable.
      *
