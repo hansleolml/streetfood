@@ -49,6 +49,18 @@
 							    </div>
 					  		</div>
 					  		<div class="form-group">
+					    	<label for="categoria" class="col-sm-2 control-label">Categoria</label>
+						    <div class="col-sm-10">
+							@if(isset($categoria))
+							<select class="form-control" name="categoria" id="categoria" required>
+							@foreach($categoria as $n)
+							<option value="{{$n->nombre}}">{{$n->nombre}}</option>
+							@endforeach
+							@endif
+							</select>
+						    </div>
+					  	</div>
+					  		<div class="form-group">
 						    	<label for="miingredientes" class="col-sm-2 control-label">Ingredientes:</label>
 						    	<div class="col-sm-10">
 						    		<textarea class="form-control" name="ingredientes" id="miingredientes" placeholder="Describe los ingredientes que usaste en la preparación (opcional)" rows="3">{{old('ingredientes')}}</textarea>
@@ -126,6 +138,7 @@
           <h3 align="center">{{$n->tituProdu}}</h3> 
           <a href="#">
         <span class="label label-warning">{{$n->localidad}}</span>
+        <span class="label label-success">{{$n->categoria}}</span>
       </a>
       <a href="#">
         <span class="label label-default">{{$n->etiket1}}</span>

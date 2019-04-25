@@ -21,6 +21,7 @@ class Productos extends Migration
             $table->text('ingredientes')->nullable();
             $table->text('promocion')->nullable();
             $table->text('precio')->nullable();
+            $table->text('categoria')->nullable();
             $table->text('etiket1')->nullable();
             $table->text('etiket2')->nullable();
             $table->text('etiket3')->nullable();

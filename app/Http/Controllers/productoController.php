@@ -58,7 +58,7 @@ class productoController extends Controller
         $tamEti=count($etiquetas);//nro elementos arreglo
 
 
-
+        $producto->categoria=$request->get('categoria');
         $producto->id_usuarioFO=$id;
         $producto->tituProdu=$request->get('tituProdu');
         $producto->ingredientes=$request->get('ingredientes');

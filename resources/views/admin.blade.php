@@ -54,63 +54,20 @@
   	<table class="table table-striped">
 		  <tr>
 		    <th>ID</th>
-		    <th>Nombre</th>
+		    <th>Nombre</t>
 		    <th>Editar</th>
 		     <th>Eliminar</th>
 		  </tr>
+		  @foreach($categoria as $n)
 		 <tr>
-		    <td>Company</td>
-		    <td>asdasdasddasdadasdasds</td>
+		    <td>{{$n->id}}</td>
+		    <td>{{$n->nombre}}</td>
 		    <td>Country</td>
 		    <td>Country</td>
 		  </tr>
+		    @endforeach
 	</table>
-  @foreach($categoria as $n)
-    @if($n->id_usuarioFO==strval(auth()->user()->id))
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <img src="http://www.laescapada.mx/wp-content/uploads/2016/10/IMG_1432-1-242x200.jpg" alt="100%x200">
-        <div class="caption">
-          <p align="right">Publicado el  {{$n->created_at}} Publicación N°.{{$n->id}}</p>
-          <p align="right">Publicado Por: 
-            <a href="">
-            @foreach($user as $k)
-              @if($n->id_usuarioFO==$k->id)
-              {{$k->name}}
-              {{$k->apellidos}}
-              @endif
-            @endforeach
-            </a>
-          </p>
-          <h3 align="center">{{$n->tituProdu}}</h3> 
-          <a href="#">
-        <span class="label label-warning">{{$n->localidad}}</span>
-      </a>
-      <a href="#">
-        <span class="label label-default">{{$n->etiket1}}</span>
-      </a>
-      <a href="#">
-        <span class="label label-default">{{$n->etiket2}}</span>
-      </a>
-      <a href="#">
-        <span class="label label-default">{{$n->etiket3}}</span>
-      </a>
-          <p>{{$n->ingredientes}}</p>
-          <p align="right">Precio s./{{$n->precio}}.00</p>
-          <p align="right">Nro de platos :  {{$n->cantidad}} </p>
-          	<a href="#" class="btn btn-primary" role="button">Editar categoria</a>
-          	<form action="{{url('categoria',$n->id)}}" method="POST">
-          		{{csrf_field()}}
-          		<input type="hidden" name="_method" value="DELETE">
-          		<button class="btn btn-button">borrar</button>
-          	</form>
-          </p>
-        </div>
-      </div>
-    </div>
-    @endif
-  @endforeach
-  </div>
+  </div>	
 
 	@endif
 </div>

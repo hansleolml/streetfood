@@ -20,9 +20,10 @@ class indexController extends Controller
             else{
         		$producto= Producto::all();
                 $user= User::all();
+                $categoria= Categoria::all();
                 //$question= Question::with('users')->where('usuario.status','=',0)->get();
                 //$question= Question::with('users')->get();
-        		return view('index')->with(['producto'=>$producto])->with(['user'=>$user]);
+        		return view('index')->with(['producto'=>$producto])->with(['user'=>$user])->with(['categoria'=>$categoria]);
             }
     	}
     	else{	
