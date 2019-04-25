@@ -1,0 +1,117 @@
+@extends('layouts.admin')
+@section('externolink')
+<link href="tokenfield/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet">
+	<link href="jquery-ui/jquery-ui.min.css" rel="stylesheet">
+
+	<!-- <link href="estilos/carousel.css" rel="stylesheet"> -->
+    <link href="{{asset('css/product.css')}}" rel="stylesheet">
+    <link href="{{asset('css/carousel.css')}}" rel="stylesheet">
+@endsection
+@section('externoscript')
+<script	src="jquery-ui/jquery-ui.min.js"> </script>
+	<script src="tokenfield/dist/bootstrap-tokenfield.min.js"></script>
+	<script type="text/javascript" src="js/tags.js"></script>
+
+@endsection
+@section('content')
+<div class="col-md-8">
+	<!-- cada row es un post -->
+	<!-- Post para publicar -->
+	<div class="row">
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">¡Registra una nueva categoria!</h3>
+			  	</div>
+			  	<div class="panel-body">
+					<form class="form-horizontal" role="form" method="POST" action="{{url('categoria')}}">
+						{{csrf_field()}}
+					  	<div class="form-group">
+					    	<label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+						    <div class="col-sm-10">
+						    	<input type="text" class="form-control" name="categoria" value="{{old('categoria')}}" id="inputEmail3" placeholder="¡Ingresa el nombre de la Categoria!" required>
+
+						    	 @if($errors->has('categoria'))
+							    <span style="color:red;">{{$errors -> first('categoria')}}</span>
+							    @endif
+
+						    </div>
+					  	</div>
+				  		<div class="form-group">
+					    	<div class="col-sm-offset-2 col-sm-10">
+					      		<button type="submit" class="btn btn-primary">Publicar</button>
+					    	</div>
+				  		</div>
+					</form>
+			 	</div>
+			</div>
+		</div>
+	</div>
+	<!-- publicaciones -->
+	<h3>Categorias de las Comidas</h3>	
+	@if(isset($categoria))
+  <div class="col-md-4">
+  	<table class="table table-striped">
+		  <tr>
+		    <th>ID</th>
+		    <th>Nombre</th>
+		    <th>Editar</th>
+		     <th>Eliminar</th>
+		  </tr>
+		 <tr>
+		    <td>Company</td>
+		    <td>asdasdasddasdadasdasds</td>
+		    <td>Country</td>
+		    <td>Country</td>
+		  </tr>
+	</table>
+  @foreach($categoria as $n)
+    @if($n->id_usuarioFO==strval(auth()->user()->id))
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="http://www.laescapada.mx/wp-content/uploads/2016/10/IMG_1432-1-242x200.jpg" alt="100%x200">
+        <div class="caption">
+          <p align="right">Publicado el  {{$n->created_at}} Publicación N°.{{$n->id}}</p>
+          <p align="right">Publicado Por: 
+            <a href="">
+            @foreach($user as $k)
+              @if($n->id_usuarioFO==$k->id)
+              {{$k->name}}
+              {{$k->apellidos}}
+              @endif
+            @endforeach
+            </a>
+          </p>
+          <h3 align="center">{{$n->tituProdu}}</h3> 
+          <a href="#">
+        <span class="label label-warning">{{$n->localidad}}</span>
+      </a>
+      <a href="#">
+        <span class="label label-default">{{$n->etiket1}}</span>
+      </a>
+      <a href="#">
+        <span class="label label-default">{{$n->etiket2}}</span>
+      </a>
+      <a href="#">
+        <span class="label label-default">{{$n->etiket3}}</span>
+      </a>
+          <p>{{$n->ingredientes}}</p>
+          <p align="right">Precio s./{{$n->precio}}.00</p>
+          <p align="right">Nro de platos :  {{$n->cantidad}} </p>
+          	<a href="#" class="btn btn-primary" role="button">Editar categoria</a>
+          	<form action="{{url('categoria',$n->id)}}" method="POST">
+          		{{csrf_field()}}
+          		<input type="hidden" name="_method" value="DELETE">
+          		<button class="btn btn-button">borrar</button>
+          	</form>
+          </p>
+        </div>
+      </div>
+    </div>
+    @endif
+  @endforeach
+  </div>
+
+	@endif
+</div>
+@endsection

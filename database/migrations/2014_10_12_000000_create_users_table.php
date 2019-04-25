@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('sexo')->nullable();
             $table->date('fechaNac')->nullable();
             $table->string('password');
+            $table->boolean('tipoUser')->default(false);
             $table->string('llave_acti')->nullable();
             $table->boolean('validado')->default(false);
             //$table->string('provider')->nullable();
