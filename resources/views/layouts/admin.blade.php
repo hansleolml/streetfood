@@ -57,7 +57,7 @@
 			        		</a>
 			        	</li>
 		        	<li>
-		        		<a href="{{ url('/reservar') }}">
+		        		<a href="{{ url('/') }}">
 			        		Categorias de Comida
 		        		</a>
 		        	</li>
@@ -101,19 +101,12 @@
 		<div class="row">
 			<!-- nav izquierda -->
 			<div class="col-md-2">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzXg5j5QuaNjVgLJAVC-g698TQRx3FPTuDtJ3Ik4if6O4XHslnKg">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzXg5j5QuaNjVgLJAVC-g698TQRx3FPTuDtJ3Ik4if6O4XHslnKg">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzXg5j5QuaNjVgLJAVC-g698TQRx3FPTuDtJ3Ik4if6O4XHslnKg">
+				
 			</div>
 			@yield('content')
 			<!-- Agrega amigos -->
 			<div class="col-md-2">
-				<div class="panel panel-primary">
-				  <div class="panel-body">
-				    Promociones
-				  </div>
-				  <div class="panel-footer">Promociones 3 x 2. .......</div>
-				</div>
+				
 			</div>
 		</div>
 	</section>
