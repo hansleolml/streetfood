@@ -61,7 +61,7 @@ class categoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('categoriaedit');
     }
 
     /**
