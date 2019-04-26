@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('externolink')
-<link href="tokenfield/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet">
-	<link href="jquery-ui/jquery-ui.min.css" rel="stylesheet">
+<link href="{{asset('tokenfield/dist/css/bootstrap-tokenfield.min.css')}}" rel="stylesheet">
+	<link href="{{asset('jquery-ui/jquery-ui.min.css')}}" rel="stylesheet">
 
 	<!-- <link href="estilos/carousel.css" rel="stylesheet"> -->
     <link href="{{asset('css/product.css')}}" rel="stylesheet">
@@ -9,7 +9,7 @@
 @endsection
 @section('externoscript')
 <script	src="jquery-ui/jquery-ui.min.js"> </script>
-	<script src="tokenfield/dist/bootstrap-tokenfield.min.js"></script>
+	<script src="{{asset('tokenfield/dist/bootstrap-tokenfield.min.js')}}"></script>
 	<script type="text/javascript" src="js/tags.js"></script>
 
 @endsection
