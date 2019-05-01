@@ -61,7 +61,8 @@ class categoriaController extends Controller
      */
     public function edit($id)
     {
-        return view('categoriaedit');
+        $categoria= Categoria::find($id);
+        return view('categoriaedit',compact('categoria'));
     }
 
     /**
@@ -73,7 +74,10 @@ class categoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Categoria= Categoria::find($id);
+        $Categoria->nombre=$request->get('categoria');
+        $Categoria->save();
+        return redirect('');
     }
 
     /**
@@ -84,6 +88,9 @@ class categoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+        return redirect('');
+        //return back()->with('info','El producto fue eliminado');
     }
 }

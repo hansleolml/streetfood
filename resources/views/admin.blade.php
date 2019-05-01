@@ -63,7 +63,13 @@
 		    <td>{{$n->id}}</td>
 		    <td>{{$n->nombre}}</td>
 		    <td><a href="{{'/categoria/'.$n->id.'/edit'}}">Editar</a></td>
-		    <td><a href="">Eliminar</a></td>
+		    <td>
+		    	<form action="{{url('categoria',$n->id)}}" method="POST">
+          		{{csrf_field()}}
+          		<input type="hidden" name="_method" value="DELETE">
+          		<button class="btn btn-button">Eliminar</button>
+          	</form>
+		    </td>
 		  </tr>
 		    @endforeach
 	</table>
