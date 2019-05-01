@@ -24,12 +24,14 @@
 			    	<h3 class="panel-title">¡Edita tu plato de comida!</h3>
 			  	</div>
 			  	<div class="panel-body">
-					<form class="form-horizontal" role="form" method="POST" action="{{url('producto')}}">
+					<form class="form-horizontal" role="form" method="POST" action="{{'/producto/'.$producto['id']}}">
 						{{csrf_field()}}
+						<input type="hidden" name="_method" value="PUT">
 					  	<div class="form-group">
 					    	<label for="inputEmail3" class="col-sm-2 control-label">Nombre del plato</label>
 						    <div class="col-sm-10">
-						    	<input type="text" class="form-control" name="tituProdu" value="{{old('tituProdu')}}" id="inputEmail3" placeholder="¡Ingresa el nombre de tu Plato!" required>
+
+						    	<input type="text" class="form-control" name="tituProdu" value="{{ $producto['tituProdu'] }}" id="inputEmail3" placeholder="¡Ingresa el nombre de tu Plato!" required>
 
 						    	 @if($errors->has('tituProdu'))
 							    <span style="color:red;">{{$errors -> first('tituProdu')}}</span>
@@ -41,17 +43,34 @@
 					  		<div class="form-group">
 						    	<label for="tokenfield" class="col-sm-2 control-label">Etiquetas</label>
 							    <div class="col-sm-10">
-							    	<input type="text" class="form-control" name="etikPregu" value="{{old('etikPregu')}}" id="tokenfield"
+							    	<input type="text" class="form-control" name="etikPregu" value="" id="tokenfield"
 							    	data-limit="4" placeholder="Etiquetas como criolla, peruana, selvatica ,etc">
 							    	@if($errors->has('etikPregu'))
 								    <span style="color:red;">{{$errors -> first('etikPregu')}}</span>
 								    @endif
 							    </div>
 					  		</div>
+					  		@if(isset($categoria))
+					  		<div class="form-group">
+						    	<label for="categoria" class="col-sm-2 control-label">Categoria</label>
+							    <div class="col-sm-10">
+								<select class="form-control" name="categoria" id="categoria" required>
+								<option value="">--Seleccionar--</option>
+								@foreach($categoria as $n)
+								@if($n->nombre==$producto['categoria'])
+								<option value="{{$n->nombre}}" selected="true">{{$n->nombre}}</option>
+								@else
+								<option value="{{$n->nombre}}">{{$n->nombre}}</option>
+								@endif
+								@endforeach
+								</select>
+							    </div>
+					  		</div>
+					  		@endif
 					  		<div class="form-group">
 						    	<label for="miingredientes" class="col-sm-2 control-label">Ingredientes:</label>
 						    	<div class="col-sm-10">
-						    		<textarea class="form-control" name="ingredientes" id="miingredientes" placeholder="Describe los ingredientes que usaste en la preparación (opcional)" rows="3">{{old('ingredientes')}}</textarea>
+						    		<textarea class="form-control" name="ingredientes" id="miingredientes" placeholder="Describe los ingredientes que usaste en la preparación (opcional)" rows="3">{{ $producto['ingredientes'] }}</textarea>
 						    	</div>
 					  		</div>
 					  		<div class="form-group">
@@ -59,7 +78,7 @@
 							    <div class="col-sm-10" id="alterna">
 							    	<div class="row">
 							    		<div class="col-sm-3">
-									    	<input type="text" class="form-control" name="promocion" value="{{old('promocion')}}" id="alter1" placeholder="Agrega promociones" required>
+									    	<input type="text" class="form-control" name="promocion" value="{{ $producto['promocion'] }}" id="alter1" placeholder="Agrega promociones" required>
 									    	@if($errors->has('promocion'))
 										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
 										    @endif
@@ -73,7 +92,7 @@
 					  		<div class="form-group">
 						    	<label for="locality" class="col-sm-2 control-label">Localidad</label>
 							    <div class="col-sm-10">
-							    	<input type="text" class="form-control" name="locality" value="{{old('locality')}}" id="locality" placeholder="Ingrese en que distrito esta disponible">
+							    	<input type="text" class="form-control" name="locality" value="{{ $producto['localidad'] }}" id="locality" placeholder="Ingrese en que distrito esta disponible">
 							    	@if($errors->has('locality'))
 								    <span style="color:red;">{{$errors -> first('locality')}}</span>
 								    @endif
@@ -82,7 +101,13 @@
 					  		<div class="form-group">
 						    	<label for="precio" class="col-sm-2 control-label">Precio</label>
 							    <div class="col-sm-2">
-							    	<input type="text" class="form-control" name="precio" value="" id="precio" placeholder="S/.">		
+							    	<input type="text" class="form-control" name="precio" value="{{ $producto['precio'] }}" id="precio" placeholder="S/.">		
+							    </div>
+					  		</div>
+					  		<div class="form-group">
+						    	<label for="cantidad" class="col-sm-2 control-label">Cantidad</label>
+							    <div class="col-sm-2">
+							    	<input type="text" class="form-control" name="cantidad" value="{{ $producto['cantidad'] }}" id="cantidad" placeholder="Nro Platos">		
 							    </div>
 					  		</div>
 					  		<div class="form-group">

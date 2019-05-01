@@ -49,17 +49,18 @@
 							    </div>
 					  		</div>
 					  		<div class="form-group">
-					    	<label for="categoria" class="col-sm-2 control-label">Categoria</label>
-						    <div class="col-sm-10">
-							@if(isset($categoria))
-							<select class="form-control" name="categoria" id="categoria" required>
-							@foreach($categoria as $n)
-							<option value="{{$n->nombre}}">{{$n->nombre}}</option>
-							@endforeach
-							@endif
-							</select>
-						    </div>
-					  	</div>
+						    	<label for="categoria" class="col-sm-2 control-label">Categoria</label>
+							    <div class="col-sm-10">
+								@if(isset($categoria))
+								<select class="form-control" name="categoria" id="categoria" required>
+								<option value="">--Seleccionar--</option>
+								@foreach($categoria as $n)
+								<option value="{{$n->nombre}}">{{$n->nombre}}</option>
+								@endforeach
+								</select>
+								@endif
+							    </div>
+					  		</div>
 					  		<div class="form-group">
 						    	<label for="miingredientes" class="col-sm-2 control-label">Ingredientes:</label>
 						    	<div class="col-sm-10">

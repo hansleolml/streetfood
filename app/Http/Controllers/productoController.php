@@ -3,6 +3,7 @@
 namespace StreetFood\Http\Controllers;
 
 use StreetFood\Producto;
+use StreetFood\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -97,9 +98,10 @@ class productoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $categoria= Categoria::all();
         $producto= Producto::find($id);
-        return view('editar',compact('producto'));
+        return view('editar',compact('producto'))->with(['categoria'=>$categoria]);
     }
 
     /**
@@ -111,7 +113,34 @@ class productoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $producto= Producto::find($id);
+
+        $id = Auth::id();
+
+        $etiquetget=$request->get('etikProdu');//consigo etik1,etike2
+        $etiquetas = explode(",", $etiquetget);//lo vuelvo un arreglo
+        $tamEti=count($etiquetas);//nro elementos arreglo
+
+
+        $producto->categoria=$request->get('categoria');
+        $producto->id_usuarioFO=$id;
+        $producto->tituProdu=$request->get('tituProdu');
+        $producto->ingredientes=$request->get('ingredientes');
+        $producto->promocion=$request->get('promocion');
+        $producto->precio=$request->get('precio');
+        $producto->cantidad=$request->get('cantidad');
+
+        for ($i=1; $i <=$tamEti ; $i++) { //añade las etiquetas segun el numero
+            $nr=$i-1;
+            $frase="etiket".$i;
+            $producto->$frase=$etiquetas[$nr];
+        
+        }
+
+        $producto->localidad=$request->get('locality');
+        $producto->save();
+        
+        return redirect('');
     }
 
     /**
