@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 	@yield('externolink')
-	<script	src="js/jquery-3.2.1.min.js"> </script>
+	<script	src="{{asset('js/jquery-3.2.1.min.js')}}"> </script>
 	<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 	@yield('externoscript')
 	<style type="text/css">

@@ -13,7 +13,6 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::get('/miperfil', 'perfilController@index');
     Route::resource('/producto','productoController');
     Route::resource('/categoria','categoriaController');
-    Route::resource('/producto/eliminar','productoController@destroy');
     Route::get('/editar', function () {
 	    return view('editar');
 	});

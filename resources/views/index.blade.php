@@ -8,9 +8,9 @@
     <link href="{{asset('css/carousel.css')}}" rel="stylesheet">
 @endsection
 @section('externoscript')
-<script	src="jquery-ui/jquery-ui.min.js"> </script>
-	<script src="tokenfield/dist/bootstrap-tokenfield.min.js"></script>
-	<script type="text/javascript" src="js/tags.js"></script>
+<script	src="{{asset('jquery-ui/jquery-ui.min.js')}}"> </script>
+	<script src="{{asset('tokenfield/dist/bootstrap-tokenfield.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/tags.js')}}"></script>
 
 @endsection
 @section('content')
@@ -152,7 +152,7 @@
           <p>{{$n->ingredientes}}</p>
           <p align="right">Precio s./{{$n->precio}}.00</p>
           <p align="right">Nro de platos :  {{$n->cantidad}} </p>
-          	<a href="#" class="btn btn-primary" role="button">Editar producto</a>
+          	<a href="{{'/producto/'.$n->id.'/edit'}}" class="btn btn-primary" role="button">Editar producto</a>
           	<form action="{{url('producto',$n->id)}}" method="POST">
           		{{csrf_field()}}
           		<input type="hidden" name="_method" value="DELETE">
