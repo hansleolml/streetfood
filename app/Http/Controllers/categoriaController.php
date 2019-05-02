@@ -39,7 +39,7 @@ class categoriaController extends Controller
         $Categoria->nombre=$request->get('categoria');
         $Categoria->save();
         
-        return back();
+        return back()->with('status','La categoria fue registrada con exito! :D');
     }
 
     /**
@@ -77,7 +77,7 @@ class categoriaController extends Controller
         $Categoria= Categoria::find($id);
         $Categoria->nombre=$request->get('categoria');
         $Categoria->save();
-        return redirect('');
+        return redirect('')->with('status','La categoria fue editada con exito! :D');
     }
 
     /**
@@ -90,7 +90,7 @@ class categoriaController extends Controller
     {
         $categoria = Categoria::find($id);
         $categoria->delete();
-        return redirect('');
+        return redirect('')->with('delprodu','La categoria fue eliminada con exito! :D');
         //return back()->with('info','El producto fue eliminado');
     }
 }

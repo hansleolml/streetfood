@@ -15,7 +15,7 @@
 @endsection
 @section('content')
 <div class="col-md-8">
-
+	@include('partials.flash')
 	<div class="row" >
 		<div class="col-md-12">
 			<div class="form-group pull-left">

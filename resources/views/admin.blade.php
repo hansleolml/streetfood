@@ -48,6 +48,7 @@
 		</div>
 	</div>
 	<!-- publicaciones -->
+	@include('partials.flash')	
 	<h3>Categorias de las Comidas</h3>	
 	@if(isset($categoria))
   <div class="col-md-4">

@@ -94,12 +94,14 @@ class reservaController extends Controller
         $reserva= Reserva::find($id);
         if ($request->get('review')!='') {
             $reserva->review=$request->get('review');
+            $aviso = "Calificación realizada con exito! :D";
         }
         if ($request->get('cantidad')!='') {
             $reserva->cantidad=$request->get('cantidad');
+            $aviso = "El reserva fue editada con exito! :D";
         }
         $reserva->save();
-        return redirect('misreservas');
+        return redirect('misreservas')->with('status',$aviso);
     }
 
     /**
@@ -112,6 +114,6 @@ class reservaController extends Controller
     {
         $reserva = Reserva::find($id);
         $reserva->delete();
-        return redirect('misreservas');
+        return redirect('misreservas')->with('delprodu','La reserva fue eliminada');
     }
 }
