@@ -72,7 +72,7 @@
 							    <div class="col-sm-10" id="alterna">
 							    	<div class="row">
 							    		<div class="col-sm-3">
-									    	<input type="text" class="form-control" name="promocion" value="{{old('promocion')}}" id="alter1" placeholder="Agrega promociones" required>
+									    	<input type="text" class="form-control" name="promocion" value="{{old('promocion')}}" id="alter1" placeholder="Agrega promociones">
 									    	@if($errors->has('promocion'))
 										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
 										    @endif
@@ -86,7 +86,7 @@
 					  		<div class="form-group">
 						    	<label for="locality" class="col-sm-2 control-label">Localidad</label>
 							    <div class="col-sm-10">
-							    	<input type="text" class="form-control" name="locality" value="{{old('locality')}}" id="locality" placeholder="Ingrese en que distrito esta disponible">
+							    	<input type="text" class="form-control" name="locality" value="{{old('locality')}}" id="locality" placeholder="Ingrese en que distrito esta disponible" required="true">
 							    	@if($errors->has('locality'))
 								    <span style="color:red;">{{$errors -> first('locality')}}</span>
 								    @endif
@@ -95,13 +95,13 @@
 					  		<div class="form-group">
 						    	<label for="precio" class="col-sm-2 control-label">Precio</label>
 							    <div class="col-sm-2">
-							    	<input type="number" class="form-control" name="precio" value="" id="precio" placeholder="S/." min="1" max="100">	
+							    	<input type="number" class="form-control" name="precio" value="" id="precio" placeholder="S/." min="1" max="100" required="true"> 	
 							    </div>
 					  		</div>
 					  		<div class="form-group">
 						    	<label for="cantidad" class="col-sm-2 control-label">Cantidad</label>
 							    <div class="col-sm-2">
-							    	<input type="number" class="form-control" name="cantidad" value="" id="cantidad" placeholder="Nro Platos" min="1" max="100">		
+							    	<input type="number" class="form-control" name="cantidad" value="" id="cantidad" placeholder="Nro Platos" min="1" max="100" required="true">		
 							    </div>
 					  		</div>
 					  		<div class="form-group">
