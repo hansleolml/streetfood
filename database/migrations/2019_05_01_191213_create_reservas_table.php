@@ -17,6 +17,7 @@ class CreateReservasTable extends Migration
             $table->increments('id');
             $table->integer('id_produFO')->unsigned();
             $table->integer('id_clienteFO')->unsigned();
+            $table->integer('cantidad')->unsigned();
             $table->timestamps();
         });
     }

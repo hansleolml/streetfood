@@ -3,6 +3,7 @@
 namespace StreetFood\Http\Controllers;
 
 use StreetFood\Producto;
+use StreetFood\Reserva;
 use StreetFood\User;
 use StreetFood\Categoria;
 use Illuminate\Http\Request;
@@ -21,9 +22,10 @@ class productoController extends Controller
 
             $producto= Producto::all();
             $user= User::all();
+            $reserva= Reserva::all();
             //$question= Question::with('users')->where('usuario.status','=',0)->get();
             //$question= Question::with('users')->get();
-            return view('reservar')->with(['producto'=>$producto])->with(['user'=>$user]);
+            return view('reservar')->with(['producto'=>$producto])->with(['user'=>$user])->with(['reserva'=>$reserva]);
         }
         else{   
             return view('entrar');

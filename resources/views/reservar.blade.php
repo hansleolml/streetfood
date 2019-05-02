@@ -75,14 +75,29 @@
           <p>{{$n->ingredientes}}</p>
           <p align="right">Precio s./{{$n->precio}}.00</p>
           <p align="right">Nro de platos :  {{$n->cantidad}} </p>
+            <?php $sumrese=0; ?>
+          @if(isset($reserva) && isset($reserva))
+          @foreach($reserva as $reser)
+            @if($reser->id_produFO==$n->id)
+            <?php $sumrese=$reser->cantidad+$sumrese; ?>
+            @endif
+          @endforeach
+          <p align="right">Nro de reservas :  {{$sumrese}} </p>
+          @endif
+          <?php $dispo= $n->cantidad-$sumrese; ?>
+          @if($dispo!=0)
           <form method="POST" action="{{url('reserva')}}">
             {{csrf_field()}}
             <div class="col-md-7">
-              <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="1" max="{{$n->cantidad}}">
+              
+              <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="0" max="{{$dispo}}" required="true">
               <input type="hidden" name="id_produ" value="{{$n->id}}">
             </div>
             <button type="submit" class="btn btn-primary">Reservar</button>
           </form>
+          @else
+          <div class="center"><p align="center" class="text-danger"><STRONG>No hay platos disponibles</STRONG></p></div>
+          @endif
         </div>
       </div>
     </div>

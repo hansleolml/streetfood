@@ -41,6 +41,7 @@ class reservaController extends Controller
         $id = Auth::id();
         $reserva->id_produFO=$request->get('id_produ');
         $reserva->id_clienteFO=$id;
+        $reserva->cantidad=$request->get('cantidad');
         $reserva->save();
         return back();
     }
