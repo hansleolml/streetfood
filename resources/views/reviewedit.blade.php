@@ -31,7 +31,6 @@
 					    	<label for="inputEmail3" class="col-sm-2 control-label">Cantidad</label>
 						    <div class="col-sm-10">
 						    	<input type="number" class="form-control" name="review" value="" id="inputEmail3" placeholder="¡La calificación esta entre 1 a 5!" required min="1" max="5">
-						    	<input type="hidden" class="form-control" name="cantidad" value="{{ $reserva['cantidad'] }}">	
 						    	@if($errors->has('reserva'))
 							    <span style="color:red;">{{$errors -> first('reserva')}}</span>
 							    @endif
@@ -40,7 +39,7 @@
 					  	</div>
 				  		<div class="form-group">
 					    	<div class="col-sm-offset-2 col-sm-10">
-					      		<button type="submit" class="btn btn-primary">Actualizar</button>
+					      		<button type="submit" class="btn btn-primary">Calificar</button>
 					    	</div>
 				  		</div>
 					</form>

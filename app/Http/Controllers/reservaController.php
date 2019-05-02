@@ -48,6 +48,7 @@ class reservaController extends Controller
         $reserva->id_produFO=$request->get('id_produ');
         $reserva->id_clienteFO=$id;
         $reserva->cantidad=$request->get('cantidad');
+        $reserva->review=$request->get('review');
         $reserva->save();
         return back();
     }
@@ -91,7 +92,12 @@ class reservaController extends Controller
     public function update(Request $request, $id)
     {
         $reserva= Reserva::find($id);
-        $reserva->cantidad=$request->get('cantidad');
+        if ($request->get('review')!='') {
+            $reserva->review=$request->get('review');
+        }
+        if ($request->get('cantidad')!='') {
+            $reserva->cantidad=$request->get('cantidad');
+        }
         $reserva->save();
         return redirect('misreservas');
     }

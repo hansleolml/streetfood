@@ -32,7 +32,7 @@
 						<th width="20px">Cantidad</th>
 						<th>Fecha</th>
 						<th>Chef</th>
-						<th>Calificación</th>
+						<th>Calificación(1 - 5)</th>
 						<th>Calificar</th>
 						<th>Editar</th>
 						<th>Borrar</th>
@@ -55,10 +55,10 @@
 							@endif
 						@endforeach
 						<td>
-							@if($reser->calificación=='')
+							@if($reser->review==0)
 							Sin calificar
 							@else
-							8
+							{{$reser->review}}
 							@endif
 						</td>
 						<td><a href="{{'/reserva/review/'.$reser->id}}">Calificar</a></td>
