@@ -50,7 +50,7 @@ class reservaController extends Controller
         $reserva->cantidad=$request->get('cantidad');
         $reserva->review=$request->get('review');
         $reserva->save();
-        return back();
+        return back()->with('status','El producto fue reservado con exito! :D');
     }
 
     /**

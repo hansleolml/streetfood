@@ -40,6 +40,7 @@
     </div>
   </div>
   <!-- publicaciones -->
+  @include('partials.flash')
   @if(isset($producto))
   <div class="row">
   @foreach($producto as $n)
