@@ -12,6 +12,7 @@ Route::group(['middleware'=>'auth'],function(){
  
 	Route::get('/miperfil', 'perfilController@index');
     Route::resource('/producto','productoController');
+    Route::resource('/reserva','reservaController');
     Route::resource('/categoria','categoriaController');
     Route::get('/editar', function () {
 	    return view('editar');
@@ -21,7 +22,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 
 Route::get('/', 'indexController@index'); //esta el index y el entrar
-Route::get('/reservar', 'reservarController@index'); //esta el index y el entrar
+Route::get('/reservar', 'productoController@index'); //esta el index y el entrar
 
 Route::get('/public',function(){
 	 $productos= App\Question::all();

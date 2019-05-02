@@ -4,10 +4,9 @@ namespace StreetFood\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use StreetFood\Producto;
-use StreetFood\User;
+use StreetFood\Reserva;
 
-class reservarController extends Controller
+class reservaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +15,7 @@ class reservarController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
-
-            $producto= Producto::all();
-            $user= User::all();
-            //$question= Question::with('users')->where('usuario.status','=',0)->get();
-            //$question= Question::with('users')->get();
-            return view('reservar')->with(['producto'=>$producto])->with(['user'=>$user]);
-        }
-        else{   
-            return view('entrar');
-        }
+        //
     }
 
     /**
@@ -47,7 +36,13 @@ class reservarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reserva= new Reserva();
+
+        $id = Auth::id();
+        $reserva->id_produFO=$request->get('id_produ');
+        $reserva->id_clienteFO=$id;
+        $reserva->save();
+        return back();
     }
 
     /**

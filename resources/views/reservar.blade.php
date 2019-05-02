@@ -74,7 +74,15 @@
       </a>
           <p>{{$n->ingredientes}}</p>
           <p align="right">Precio s./{{$n->precio}}.00</p>
-          <p><a href="#" class="btn btn-primary" role="button">Reservar comida</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p align="right">Nro de platos :  {{$n->cantidad}} </p>
+          <form method="POST" action="{{url('reserva')}}">
+            {{csrf_field()}}
+            <div class="col-md-7">
+              <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="1" max="{{$n->cantidad}}">
+              <input type="hidden" name="id_produ" value="{{$n->id}}">
+            </div>
+            <button type="submit" class="btn btn-primary">Reservar</button>
+          </form>
         </div>
       </div>
     </div>
