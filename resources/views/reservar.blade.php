@@ -90,7 +90,7 @@
             {{csrf_field()}}
             <div class="col-md-7">
               
-              <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="0" max="{{$dispo}}" required="true">
+              <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="1" max="{{$dispo}}" required="true">
               <input type="hidden" name="id_produ" value="{{$n->id}}">
             </div>
             <button type="submit" class="btn btn-primary">Reservar</button>
