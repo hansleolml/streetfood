@@ -11,101 +11,65 @@
 			  	<!-- perfil -->
 			  	<div class="panel-body">
 				    <div class="row">
-				    	<div class="col-sm-3">
+				    	<div class="col-sm-10">
 				    		<strong>Nombres:</strong>
+				    		<span class="pull-right">Lawrence Vennadite</span>
 				    	</div>
-				    	<div class="col-sm-4">
-				    		<p class="text-right">Jennifer Thalia lorem</p>
-				    	</div>
-				    	<div class="col-sm-1">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				   
 				    </div>
 				    <div class="row">
-				    	<div class="col-sm-3">
+				    	<div class="col-sm-10">
 				    		<strong>Apellidos:</strong>
+				    		<span class="pull-right">Lawrence Vennadite</span>
 				    	</div>
-				    	<div class="col-sm-4">
-				    		<p class="text-right">Lawrence Vennadite</p>
-				    	</div>
-				    	<div class="col-sm-5">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				    
 				    </div>
 				    <div class="row">
-				    	<div class="col-sm-7">
+				    	<div class="col-sm-10">
 				    		<strong>Sexo:</strong>
 				    		<span class="pull-right">Hombre</span>
 				    	</div>
-				    	<div class="col-sm-5">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				    	
 				    </div>
 				    <div class="row">
-				    	<div class="col-sm-7">
+				    	<div class="col-sm-10">
 				    		<strong>Fecha de Nacimiento:</strong>
 				    		<span class="pull-right">15/08/1997</span>
 				    	</div>
-				    	<div class="col-sm-5">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				    	
 				    </div>
 				    <div class="row">
-				    	<div class="col-sm-7">
+				    	<div class="col-sm-10">
 				    		<strong>Estudios:</strong>
 				    		<span class="pull-right">Medicina en Universidad Mayor de San Marcos</span>
 				    	</div>
-				    	<div class="col-sm-5">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				    	
 				    </div>
 				    <div class="row">
-				    	<div class="col-sm-7">
+				    	<div class="col-sm-10">
 				    		<strong>De:</strong>
 				    		<span class="pull-right">Perú, Lima</span>
 				    	</div>
-				    	<div class="col-sm-5">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				    	
 				    </div>
 				    <div class="row">
-				    	<div class="col-sm-7">
+				    	<div class="col-sm-10">
 				    		<strong>Email:</strong>
 				    		<span class="pull-right">Jennifer_12@gmail.com</span>
 				    	</div>
-				    	<div class="col-sm-5">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				    	
 				    </div>
 				    <div class="row">
-				    	<div class="col-sm-7">
+				    	<div class="col-sm-10">
 				    		<strong>Relación:</strong>
 				    		<span class="pull-right">Soltera</span>
 				    	</div>
-				    	<div class="col-sm-5">
-				    		<button class="btn btn-default btn-sm" type="submit">
-				    			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				    		</button>
-				    	</div>
+				    	
 				    </div>
 				    <div class="row">
 				    	<div class="col-sm-12">
 				    		<button class="btn btn-default pull-right" right type="submit">
-				    		Editar
+				    		Actualizar
 				    		</button>
 				    	</div>
 				    </div>
@@ -133,34 +97,34 @@
 		    </div>
 		</div>
 	</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-							  	<div class="panel-heading">
-							    	<h3 class="panel-title">Interacciones</h3>
-							  	</div>
-							  	<div class="panel-body">
-								    <div class="row">
-								    	<div class="col-sm-12">
-								    		<h3>Reviews Hechos<small>(relevancia/fecha)</small></h3>
-								    		<p>1.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
-								    		<p>2.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
-								    		<p>3.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
-								    		<p>4.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
-								    		<p>5.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
-								    		<p>6.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
-								    		<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-								    		<h3>Reviews recibidos<small>(relevancia/fecha)</small></h3>
-								    		<p>1.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
-								    		<p>2.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
-								    		<p>3.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
-								    		<p>4.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
-								    		<p>5.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
-								    		<p>6.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
-								    	</div>
-								    </div>
-							  	</div>
-							</div>
-						</div>
-					</div>
+	<!-- 	<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+				  	<div class="panel-heading">
+				    	<h3 class="panel-title">Interacciones</h3>
+				  	</div>
+				  	<div class="panel-body">
+					    <div class="row">
+					    	<div class="col-sm-12">
+					    		<h3>Reviews Hechos<small>(relevancia/fecha)</small></h3>
+					    		<p>1.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
+					    		<p>2.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
+					    		<p>3.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
+					    		<p>4.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
+					    		<p>5.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
+					    		<p>6.-<a href="#">¿Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ab.?</a> #interacciones = 150 fecha 14/08/2014</p>
+					    		<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+					    		<h3>Reviews recibidos<small>(relevancia/fecha)</small></h3>
+					    		<p>1.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
+					    		<p>2.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
+					    		<p>3.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
+					    		<p>4.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
+					    		<p>5.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014</p>
+					    		<p>6.-Lorem ipsum dolor sit amet.<a href="#">..ver más</a> en <a href="#">¿Lorem ipsum dolor sit....?</a> Likes=150  Dislikes=12 fecha 14/08/2014 <strong>SOBRESALIENTE</strong></p>
+					    	</div>
+					    </div>
+				  	</div>
+				</div>
+			</div>
+		</div> -->
 </div>
