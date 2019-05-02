@@ -11,6 +11,8 @@ Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
  
 	Route::get('/miperfil', 'perfilController@index');
+	Route::get('/misreservas', 'reservaController@index');
+	Route::get('/reserva/review/{id}', 'reservaController@review');
     Route::resource('/producto','productoController');
     Route::resource('/reserva','reservaController');
     Route::resource('/categoria','categoriaController');

@@ -5,6 +5,9 @@ namespace StreetFood\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use StreetFood\Reserva;
+use StreetFood\User;
+use StreetFood\Producto;
+
 
 class reservaController extends Controller
 {
@@ -15,7 +18,10 @@ class reservaController extends Controller
      */
     public function index()
     {
-        //
+        $producto= Producto::all();
+        $user= User::all();
+        $reserva= Reserva::orderby('id','ASC')->paginate();
+        return view('misreservas',compact('reserva'))->with(['producto'=>$producto])->with(['user'=>$user]);
     }
 
     /**
@@ -65,7 +71,14 @@ class reservaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reserva= Reserva::find($id);
+        return view('reservaedit',compact('reserva'));
+    }
+
+    public function review($id)
+    {
+        $reserva= Reserva::find($id);
+        return view('reviewedit',compact('reserva'));
     }
 
     /**
@@ -77,7 +90,10 @@ class reservaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reserva= Reserva::find($id);
+        $reserva->cantidad=$request->get('cantidad');
+        $reserva->save();
+        return redirect('misreservas');
     }
 
     /**
@@ -88,6 +104,8 @@ class reservaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reserva = Reserva::find($id);
+        $reserva->delete();
+        return redirect('misreservas');
     }
 }

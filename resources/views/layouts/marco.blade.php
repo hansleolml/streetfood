@@ -31,6 +31,19 @@
 		{   
 		 text-decoration:none;   
 		}
+		.results tr[visible='false'],
+		.no-result{
+		  display:none;
+		}
+
+		.results tr[visible='true']{
+		  display:table-row;
+		}
+
+		.counter{
+		  padding:8px; 
+		  color:#ccc;
+		}
 	</style>
 </head>
 <body>
@@ -97,8 +110,8 @@
 			      	</ul>
 		      		<ul class="nav navbar-nav navbar-right">
 		      			<li>
-		        			<a href="{{ url('/miperfil') }}">
-		        				Carrito
+		        			<a href="{{ url('/misreservas') }}">
+		        				Mis Reservas
 		        			<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 
 		        			</a>
 		        		</li>

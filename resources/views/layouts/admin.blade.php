@@ -31,6 +31,19 @@
 		{   
 		 text-decoration:none;   
 		}
+		.results tr[visible='false'],
+		.no-result{
+		  display:none;
+		}
+
+		.results tr[visible='true']{
+		  display:table-row;
+		}
+
+		.counter{
+		  padding:8px; 
+		  color:#ccc;
+		}
 	</style>
 </head>
 <body>

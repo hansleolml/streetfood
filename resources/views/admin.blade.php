@@ -66,9 +66,9 @@
 		    <td>
 		    	<form action="{{url('categoria',$n->id)}}" method="POST">
           		{{csrf_field()}}
-          		<input type="hidden" name="_method" value="DELETE">
-          		<button class="btn btn-button">Eliminar</button>
-          	</form>
+	          		<input type="hidden" name="_method" value="DELETE">
+	          		<button class="btn btn-button btn-danger">Eliminar</button>
+          		</form>
 		    </td>
 		  </tr>
 		    @endforeach
