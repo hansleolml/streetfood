@@ -90,7 +90,7 @@ class productoController extends Controller
         $producto->localidad=$request->get('locality');
         $producto->save();
         
-        return back();
+        return back()->with('status','El producto fue creado con exito! :D');
     }
 
     /**
@@ -153,7 +153,7 @@ class productoController extends Controller
         $producto->localidad=$request->get('locality');
         $producto->save();
         
-        return redirect('');
+        return redirect('')->with('status','El producto fue editado con exito! :D');
     }
 
     /**
@@ -166,6 +166,6 @@ class productoController extends Controller
     {
         $producto = Producto::find($id);
         $producto->delete();
-        return back()->with('info','El producto fue eliminado');
+        return back()->with('delprodu','El producto fue eliminado');
     }
 }

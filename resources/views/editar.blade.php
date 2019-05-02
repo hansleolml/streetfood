@@ -101,20 +101,22 @@
 					  		<div class="form-group">
 						    	<label for="precio" class="col-sm-2 control-label">Precio</label>
 							    <div class="col-sm-2">
-							    	<input type="text" class="form-control" name="precio" value="{{ $producto['precio'] }}" id="precio" placeholder="S/.">		
+							    	<input type="number" class="form-control" name="precio" value="{{ $producto['precio'] }}" id="precio" placeholder="S/." min="1"
+							    	max="100">		
 							    </div>
 					  		</div>
 					  		<div class="form-group">
 						    	<label for="cantidad" class="col-sm-2 control-label">Cantidad</label>
 							    <div class="col-sm-2">
-							    	<input type="text" class="form-control" name="cantidad" value="{{ $producto['cantidad'] }}" id="cantidad" placeholder="Nro Platos">		
+							    	<input type="number" class="form-control" name="cantidad" value="{{ $producto['cantidad'] }}" id="cantidad" placeholder="Nro Platos" min="1"
+							    	max="100">		
 							    </div>
 					  		</div>
 					  		<div class="form-group">
-						    	<div class="col-sm-offset-2 col-sm-1">
-						      		<button type="submit" class="btn btn-primary">Editar</button>
+						    	<div class="col-sm-offset-2 col-sm-2">
+						      		<button type="submit" class="btn btn-primary">Actualizar</button>
 						    	</div>
-						    	<div class="col-sm-1">						      		
+						    	<div class="col-sm-2">						      		
 						      		<a href="{{url('')}}" class="btn btn-primary">Cancelar</a>
 						    	</div>
 					  		</div>
