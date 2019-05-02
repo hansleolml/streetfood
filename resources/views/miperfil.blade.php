@@ -66,22 +66,15 @@
 				    <div class="row">
 				    	<div class="col-sm-12">
 				    		<strong>Email:</strong>
-				    		<span class="pull-right">Jennifer_12@gmail.com</span>
+				    		<span class="pull-right">{{auth()->user()->email}}</span>
 				    	</div>
 				    	
-				    </div>
+				    </div>	
 				    <div class="row">
 				    	<div class="col-sm-12">
-				    		<strong>Relación:</strong>
-				    		<span class="pull-right">Soltera</span>
-				    	</div>
-				    	
-				    </div>
-				    <div class="row">
-				    	<div class="col-sm-12">
-				    		<button class="btn btn-primary pull-right" right type="submit">
+				    		<a class="btn btn-primary pull-right" href="{{ url('/editperfil') }}"right>
 				    		Actualizar
-				    		</button>
+				    		</a>
 				    	</div>
 				    </div>
 			  	</div>

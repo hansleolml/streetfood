@@ -3,6 +3,9 @@
 namespace StreetFood\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use StreetFood\User;
+use StreetFood\Perfil;
 
 class perfilController extends Controller
 {
@@ -23,7 +26,7 @@ class perfilController extends Controller
      */
     public function create()
     {
-        //
+        return view('editperfil');
     }
 
     /**
@@ -34,7 +37,11 @@ class perfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $perfil= new Perfil();
+        $perfil->sexo=$request->get('sexo');
+        $perfil->save();
+        
+        return back()->with('status','El perfil fue creado con exito! :D');
     }
 
     /**
