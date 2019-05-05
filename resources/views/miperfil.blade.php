@@ -37,10 +37,15 @@
 				    </div>
 				    <div class="row">
 				    	<div class="col-sm-12">
-				    		<strong>Sexo:</strong>
+				    		<strong>Nombre de usuario:</strong>
 				    		<span class="pull-right">{{ $perfil['username'] }}</span>
 				    	</div>
-				    	
+				    </div>
+				    <div class="row">
+				    	<div class="col-sm-12">
+				    		<strong>Sexo:</strong>
+				    		<span class="pull-right">{{ $perfil['sexo'] }}</span>
+				    	</div>
 				    </div>
 				    <div class="row">
 				    	<div class="col-sm-12">
@@ -70,13 +75,23 @@
 				    	</div>
 				    	
 				    </div>	
+				    @if($perfil)
 				    <div class="row">
 				    	<div class="col-sm-12">
-				    		<a class="btn btn-primary pull-right" href="{{ url('/editperfil') }}"right>
+				    		<a class="btn btn-primary pull-right" href="{{ url('/miperfil/'.$perfil['id'].'/edit') }}" right>
+				    		Editar
+				    		</a>
+				    	</div>
+				    </div>
+				    @else
+				    <div class="row">
+				    	<div class="col-sm-12">
+				    		<a class="btn btn-primary pull-right" href="{{ url('/crearperfil') }}" right>
 				    		Actualizar
 				    		</a>
 				    	</div>
 				    </div>
+				    @endif
 			  	</div>
 			</div>
 		</div>

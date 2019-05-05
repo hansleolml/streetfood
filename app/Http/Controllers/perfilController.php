@@ -30,7 +30,7 @@ class perfilController extends Controller
      */
     public function create()
     {
-        return view('editperfil');
+        return view('crearperfil');
     }
 
     /**
@@ -42,10 +42,19 @@ class perfilController extends Controller
     public function store(Request $request)
     {
         $perfil= new Perfil();
+        $perfil->id_usuaFO=Auth::id();
         $perfil->sexo=$request->get('sexo');
+        $perfil->username=$request->get('username');
         $perfil->save();
         
-        return back()->with('status','El perfil fue creado con exito! :D');
+        $id =Auth::id();
+        $user= User::find($id);
+        $user->name=$request->get('nombre');
+        $user->apellidos=$request->get('apellido');
+        $user->save();
+
+
+        return redirect('miperfil')->with('status','El perfil fue creado con exito! :D');
     }
 
     /**
@@ -67,7 +76,8 @@ class perfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        $perfil= Perfil::find($id);
+        return view('editperfil',compact('perfil'));
     }
 
     /**
@@ -79,7 +89,18 @@ class perfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $perfil= Perfil::find($id);
+        $perfil->id_usuaFO=Auth::id();
+        $perfil->sexo=$request->get('sexo');
+        $perfil->username=$request->get('username');
+        $perfil->save();
+
+        $id =Auth::id();
+        $user= User::find($id);
+        $user->name=$request->get('nombre');
+        $user->apellidos=$request->get('apellido');
+        $user->save();
+        return redirect('miperfil')->with('status','La categoria fue editada con exito! :D');
     }
 
     /**

@@ -24,9 +24,8 @@
 			    	<h3 class="panel-title">¡Edita tu perfil!</h3>
 			  	</div>
 			  	<div class="panel-body">
-					<form class="form-horizontal" role="form" method="POST" action="{{'/miperfil/'.$perfil['id']}}">
+					<form class="form-horizontal" role="form" method="POST" action="{{url('miperfil')}}">
 						{{csrf_field()}}
-						<input type="hidden" name="_method" value="PUT">
 					  	<div class="form-group">
 					    	<label for="nombre" class="col-sm-2 control-label">Nombre </label>
 						    <div class="col-sm-10">
@@ -42,7 +41,7 @@
 					  	<div class="form-group">
 					    	<label for="username" class="col-sm-2 control-label">Nombre de usuario: </label>
 						    <div class="col-sm-10">
-						    	<input type="text" class="form-control" name="username" value="{{ $perfil['username'] }}" id="username" placeholder="¡Ingresa tu nombre de usuario!" required>
+						    	<input type="text" class="form-control" name="username" value="" id="username" placeholder="¡Ingresa tu nombre de usuario!" required>
 						    </div>
 					  	</div>
 					  	<div class="form-group">
