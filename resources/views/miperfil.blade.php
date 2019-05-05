@@ -38,7 +38,7 @@
 				    <div class="row">
 				    	<div class="col-sm-12">
 				    		<strong>Sexo:</strong>
-				    		<span class="pull-right">Hombre</span>
+				    		<span class="pull-right">{{ $perfil['username'] }}</span>
 				    	</div>
 				    	
 				    </div>

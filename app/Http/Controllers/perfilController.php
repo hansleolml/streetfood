@@ -15,8 +15,12 @@ class perfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('miperfil');
+    {   
+        $id =Auth::id();
+        $perfil= Perfil::where('id_usuaFO', $id)->get()->first();
+        //return $perfil;
+        // return view('miperfil',compact('perfil'));
+        return view('miperfil')->with(['perfil'=>$perfil]);
     }
 
     /**
