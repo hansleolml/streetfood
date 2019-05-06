@@ -20,7 +20,8 @@ class reservaController extends Controller
     {
         $producto= Producto::all();
         $user= User::all();
-        $reserva= Reserva::orderby('id','ASC')->paginate();
+        $id = Auth::id();
+        $reserva= Reserva::where('id_clienteFO',$id)->paginate();
         return view('misreservas',compact('reserva'))->with(['producto'=>$producto])->with(['user'=>$user]);
     }
 
@@ -46,6 +47,7 @@ class reservaController extends Controller
 
         $id = Auth::id();
         $reserva->id_produFO=$request->get('id_produ');
+        $reserva->id_chefFO=$request->get('id_chefFO');
         $reserva->id_clienteFO=$id;
         $reserva->cantidad=$request->get('cantidad');
         $reserva->review=$request->get('review');

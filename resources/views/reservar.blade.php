@@ -93,6 +93,7 @@
               
               <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="1" max="{{$dispo}}" required="true">
               <input type="hidden" name="review" value="0">
+              <input type="hidden" name="id_chefFO" value="{{$n->id_usuarioFO}}">
               <input type="hidden" name="id_produ" value="{{$n->id}}">
             </div>
             <button type="submit" class="btn btn-primary">Reservar</button>

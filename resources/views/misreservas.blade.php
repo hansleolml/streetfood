@@ -50,7 +50,7 @@
 						<td>{{$reser->cantidad}}</td>
 						<td>{{$reser->created_at}}</td>
 						@foreach($user as $us)
-							@if($reser->id_clienteFO==$us->id)
+							@if($reser->id_chefFO==$us->id)
 							<td>{{$us->name}} {{$us->apellidos}}</td>
 							@endif
 						@endforeach
