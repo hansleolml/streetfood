@@ -19,8 +19,9 @@ class Productos extends Migration
             //$table->foreign('id_usuarioFO')->references('id')->on('users');
             $table->string('tituProdu');
             $table->text('ingredientes')->nullable();
-            $table->text('promocion')->nullable();
-            $table->text('precio')->nullable();
+            $table->integer('promopide')->nullable();
+            $table->integer('promolleva')->nullable();
+            $table->integer('precio')->nullable();
             $table->text('categoria')->nullable();
             $table->text('etiket1')->nullable();
             $table->text('etiket2')->nullable();

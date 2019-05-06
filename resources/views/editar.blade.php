@@ -77,15 +77,24 @@
 						    	<label for="alter1" class="col-sm-2 control-label">Introduce alguna promoción</label>
 							    <div class="col-sm-10" id="alterna">
 							    	<div class="row">
-							    		<div class="col-sm-3">
-									    	<input type="text" class="form-control" name="promocion" value="{{ $producto['promocion'] }}" id="alter1" placeholder="Agrega promociones" required>
+							    		<div class="col-sm-2">
+									    	<input type="number" class="form-control" name="promopide" value="{{ $producto['promopide'] }}" id="alter1" placeholder="Cant. Pide" min="1">
 									    	@if($errors->has('promocion'))
 										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
 										    @endif
 							    		</div>
-							    		<button type="button" class="btn btn-success btn-sm" id="alternativas">
-							    			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-							    		</button>			    		
+							    		<div class="col-sm-2">
+									    	<input type="number" class="form-control" name="promolleva" value="{{ $producto['promolleva'] }}" id="" placeholder="Cant. Llevar" min="2">
+									    	@if($errors->has('promocion'))
+										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
+										    @endif
+							    		</div>
+							    		<div class="col-sm-4">
+									    	<p class="text-danger">
+									    		*Ejemplo : 1 x 2 , pague 1 y lleve 2.<br>
+									    		*De estar vacio no se aplicara ninguna promoción.
+									    	</p>
+							    		</div>	   		
 							    	</div>
 							    </div>
 					  		</div>

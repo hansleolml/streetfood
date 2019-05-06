@@ -76,7 +76,8 @@ class productoController extends Controller
         $producto->id_usuarioFO=$id;
         $producto->tituProdu=$request->get('tituProdu');
         $producto->ingredientes=$request->get('ingredientes');
-        $producto->promocion=$request->get('promocion');
+        $producto->promopide=$request->get('promopide');
+        $producto->promolleva=$request->get('promolleva');
         $producto->precio=$request->get('precio');
         $producto->cantidad=$request->get('cantidad');
 
@@ -139,7 +140,8 @@ class productoController extends Controller
         $producto->id_usuarioFO=$id;
         $producto->tituProdu=$request->get('tituProdu');
         $producto->ingredientes=$request->get('ingredientes');
-        $producto->promocion=$request->get('promocion');
+        $producto->promopide=$request->get('promopide');
+        $producto->promolleva=$request->get('promolleva');
         $producto->precio=$request->get('precio');
         $producto->cantidad=$request->get('cantidad');
 

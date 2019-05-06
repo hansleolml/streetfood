@@ -71,15 +71,24 @@
 						    	<label for="alter1" class="col-sm-2 control-label">Introduce alguna promoción</label>
 							    <div class="col-sm-10" id="alterna">
 							    	<div class="row">
-							    		<div class="col-sm-3">
-									    	<input type="text" class="form-control" name="promocion" value="{{old('promocion')}}" id="alter1" placeholder="Agrega promociones">
+							    		<div class="col-sm-2">
+									    	<input type="number" class="form-control" name="promopide" value="" id="alter1" placeholder="Cant. Pide" min="1">
 									    	@if($errors->has('promocion'))
 										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
 										    @endif
 							    		</div>
-							    		<button type="button" class="btn btn-success btn-sm" id="alternativas">
-							    			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-							    		</button>			    		
+							    		<div class="col-sm-2">
+									    	<input type="number" class="form-control" name="promolleva" value="" id="" placeholder="Cant. Llevar" min="2">
+									    	@if($errors->has('promocion'))
+										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
+										    @endif
+							    		</div>
+							    		<div class="col-sm-4">
+									    	<p class="text-danger">
+									    		*Ejemplo : 1 x 2 , pague 1 y lleve 2.<br>
+									    		*De estar vacio no se aplicara ninguna promoción.
+									    	</p>
+							    		</div>	   		
 							    	</div>
 							    </div>
 					  		</div>
@@ -154,7 +163,8 @@
           <p>{{$n->ingredientes}}</p>
           <p align="right">Precio s./{{$n->precio}}.00</p>
           <p align="right">Nro de platos :  {{$n->cantidad}} </p>
-          	<a href="{{'/producto/'.$n->id.'/edit'}}" class="btn btn-primary" role="button">Editar producto</a>
+          <p class="text-warning">Promoción pague {{$n->promopide}} y lleve {{$n->promolleva}}</p>
+          	<a href="{{'/producto/'.$n->id.'/edit'}}" class="btn btn-primary" role="button" >Editar producto</a>
           	<form action="{{url('producto',$n->id)}}" method="POST">
           		{{csrf_field()}}
           		<input type="hidden" name="_method" value="DELETE">
