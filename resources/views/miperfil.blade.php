@@ -37,6 +37,13 @@
 				    </div>
 				    <div class="row">
 				    	<div class="col-sm-12">
+				    		<strong>Email:</strong>
+				    		<span class="pull-right">{{auth()->user()->email}}</span>
+				    	</div>
+				    	
+				    </div>
+				    <div class="row">
+				    	<div class="col-sm-12">
 				    		<strong>Nombre de usuario:</strong>
 				    		<span class="pull-right">{{ $perfil['username'] }}</span>
 				    	</div>
@@ -50,31 +57,24 @@
 				    <div class="row">
 				    	<div class="col-sm-12">
 				    		<strong>Fecha de Nacimiento:</strong>
-				    		<span class="pull-right">15/08/1997</span>
+				    		<span class="pull-right">{{ $perfil['fechaNac'] }}</span>
 				    	</div>
 				    	
 				    </div>
 				    <div class="row">
 				    	<div class="col-sm-12">
 				    		<strong>Estudios:</strong>
-				    		<span class="pull-right">Medicina en Universidad Mayor de San Marcos</span>
+				    		<span class="pull-right">{{ $perfil['estudios'] }}</span>
 				    	</div>
 				    	
 				    </div>
 				    <div class="row">
 				    	<div class="col-sm-12">
-				    		<strong>De:</strong>
-				    		<span class="pull-right">Perú, Lima</span>
+				    		<strong>Experiencia:</strong>
+				    		<span class="pull-right">{{ $perfil['experiencia'] }}</span>
 				    	</div>
 				    	
 				    </div>
-				    <div class="row">
-				    	<div class="col-sm-12">
-				    		<strong>Email:</strong>
-				    		<span class="pull-right">{{auth()->user()->email}}</span>
-				    	</div>
-				    	
-				    </div>	
 				    @if($perfil)
 				    <div class="row">
 				    	<div class="col-sm-12">

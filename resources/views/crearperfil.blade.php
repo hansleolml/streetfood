@@ -41,17 +41,37 @@
 					  	<div class="form-group">
 					    	<label for="username" class="col-sm-2 control-label">Nombre de usuario: </label>
 						    <div class="col-sm-10">
-						    	<input type="text" class="form-control" name="username" value="" id="username" placeholder="¡Ingresa tu nombre de usuario!" required>
+						    	<input type="text" class="form-control" name="username" value="" id="username" placeholder="¡Ingresa tu nombre de usuario!">
 						    </div>
 					  	</div>
 					  	<div class="form-group">
 					    	<label for="sexo" class="col-sm-2 control-label">Genero: </label>
 						    <div class="col-sm-10">
-						    	<select name="sexo" id="sexo" class="form-control" required>
+						    	<select name="sexo" id="sexo" class="form-control">
 						    		<option value="" selected="true">--Seleccionar--</option>
 						    		<option value="Hombre">Hombre</option>
 						    		<option value="Mujer">Mujer</option>
 						    	</select>
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="fechaNac" class="col-sm-2 control-label">Fecha de Nacimiento: </label>
+						    <div class="col-sm-10">
+						    	<input type="date" class="form-control" name="fechaNac" value="" id="fechaNac" placeholder="¡Ingresa tu fecha de nacimiento!">
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="estudios" class="col-sm-2 control-label">Estudios: </label>
+						    <div class="col-sm-10">
+						    	<textarea name="estudios" id="estudios" class="form-control" rows="3">
+						    	</textarea>
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="experiencia" class="col-sm-2 control-label">Experiencia: </label>
+						    <div class="col-sm-10">
+						    	<textarea name="experiencia" id="experiencia" class="form-control" rows="3">
+						    	</textarea>
 						    </div>
 					  	</div>
 				  		<div class="form-group">

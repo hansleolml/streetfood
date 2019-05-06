@@ -45,6 +45,9 @@ class perfilController extends Controller
         $perfil->id_usuaFO=Auth::id();
         $perfil->sexo=$request->get('sexo');
         $perfil->username=$request->get('username');
+        $perfil->estudios=$request->get('estudios');
+        $perfil->fechaNac=$request->get('fechaNac');
+        $perfil->experiencia=$request->get('experiencia');
         $perfil->save();
         
         $id =Auth::id();
@@ -93,6 +96,9 @@ class perfilController extends Controller
         $perfil->id_usuaFO=Auth::id();
         $perfil->sexo=$request->get('sexo');
         $perfil->username=$request->get('username');
+        $perfil->estudios=$request->get('estudios');
+        $perfil->fechaNac=$request->get('fechaNac');
+        $perfil->experiencia=$request->get('experiencia');
         $perfil->save();
 
         $id =Auth::id();

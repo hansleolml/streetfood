@@ -42,17 +42,49 @@
 					  	<div class="form-group">
 					    	<label for="username" class="col-sm-2 control-label">Nombre de usuario: </label>
 						    <div class="col-sm-10">
-						    	<input type="text" class="form-control" name="username" value="{{ $perfil['username'] }}" id="username" placeholder="¡Ingresa tu nombre de usuario!" required>
+						    	<input type="text" class="form-control" name="username" value="{{ $perfil['username'] }}" id="username" placeholder="¡Ingresa tu nombre de usuario!" >
 						    </div>
 					  	</div>
 					  	<div class="form-group">
 					    	<label for="sexo" class="col-sm-2 control-label">Genero: </label>
 						    <div class="col-sm-10">
-						    	<select name="sexo" id="sexo" class="form-control" required>
+						    	<select name="sexo" id="sexo" class="form-control" >
+						    		@if($perfil['sexo']=='Hombre')
+						    		<option value="">--Seleccionar--</option>
+						    		<option value="Hombre" selected="true">Hombre</option>
+						    		<option value="Mujer">Mujer</option>
+						    		@elseif($perfil['sexo']=='Mujer')
+						    		<option value="">--Seleccionar--</option>
+						    		<option value="Hombre">Hombre</option>
+						    		<option value="Mujer" selected="true">Mujer</option>
+						    		@else
 						    		<option value="" selected="true">--Seleccionar--</option>
 						    		<option value="Hombre">Hombre</option>
 						    		<option value="Mujer">Mujer</option>
+						    		@endif
 						    	</select>
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="fechaNac" class="col-sm-2 control-label">Fecha de Nacimiento: </label>
+						    <div class="col-sm-10">
+						    	<input type="date" class="form-control" name="fechaNac" value="{{ $perfil['fechaNac'] }}" id="fechaNac" placeholder="¡Ingresa tu fecha de nacimiento!">
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="estudios" class="col-sm-2 control-label">Estudios: </label>
+						    <div class="col-sm-10">
+						    	<textarea name="estudios" id="estudios" class="form-control" >
+						    		{{$perfil['estudios']}}
+						    	</textarea>
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="experiencia" class="col-sm-2 control-label">Experiencia: </label>
+						    <div class="col-sm-10">
+						    	<textarea name="experiencia" id="experiencia" class="form-control" rows="3">
+						    		{{ $perfil['experiencia'] }}
+						    	</textarea>
 						    </div>
 					  	</div>
 				  		<div class="form-group">
