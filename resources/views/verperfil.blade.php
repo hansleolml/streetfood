@@ -138,9 +138,10 @@
 	</div>		
 	@endif
 	@if(count($reserva)!=0)
+	@include('partials.flash')
 	<div class="row">
 		<div class="col-md-12">
-			<div class="panel panel-default">
+			<div class="panel panel-default">				
 			  	<div class="panel-heading">
 			    	<h3 class="panel-title">Comentarios</h3>
 			  	</div>
@@ -154,7 +155,13 @@
 							</a>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Media heading</h4>
+							<h4 class="media-heading">Media heading
+							<form action="{{url('comentario',$comen->id)}}" method="POST">
+			          		{{csrf_field()}}
+				          		<input type="hidden" name="_method" value="DELETE">
+				          		<button class="btn btn-button btn-danger pull-right">X</button>
+			          		</form>
+							</h4>
 							{{$comen->comentario}}
 						</div>
 					</div>

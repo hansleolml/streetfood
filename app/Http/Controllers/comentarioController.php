@@ -47,7 +47,7 @@ class comentarioController extends Controller
         $Comentario->id_clienteFO=$idcliente;
         $Comentario->save();
         
-        return back()->with('status','La categoria fue registrada con exito! :D');
+        return back()->with('status','El comentario fue realizado con exito! :D');
     }
 
     /**
@@ -99,6 +99,8 @@ class comentarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Comentario = Comentario::find($id);
+        $Comentario->delete();
+        return back()->with('delprodu','El Comentario fue eliminado');
     }
 }
