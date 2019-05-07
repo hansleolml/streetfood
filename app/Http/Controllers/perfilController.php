@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use StreetFood\User;
 use StreetFood\Perfil;
+use StreetFood\Reserva;
 
 class perfilController extends Controller
 {
@@ -18,9 +19,10 @@ class perfilController extends Controller
     {   
         $id =Auth::id();
         $perfil= Perfil::where('id_usuaFO', $id)->get()->first();
-        //return $perfil;
+        $reviews= Reserva::where('id_chefFO', $id)->get();
+        //return count($reviews) ;
         // return view('miperfil',compact('perfil'));
-        return view('miperfil')->with(['perfil'=>$perfil]);
+        return view('miperfil')->with(['perfil'=>$perfil])->with(['reviews'=>$reviews]);
     }
 
     /**

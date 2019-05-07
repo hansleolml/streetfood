@@ -15,6 +15,8 @@
 @endsection
 @section('content')
 <div class="col-md-8">
+	<div class="row">
+		<div class="col-md-12">
 			<div class="panel panel-default">
 			  	<div class="panel-heading">
 			    	<h3 class="panel-title">Perfil</h3>
@@ -94,5 +96,63 @@
 				    @endif
 			  	</div>
 			</div>
+
 		</div>
+	</div>
+	@if(count($reviews)!=0)
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Reviews</h3>
+			  	</div>
+			  	<!-- perfil -->
+			  	<div class="panel-body">
+				    <div class="row">
+				    	<div class="col-sm-12">
+				    		<?php 
+				    		$cont = 0;
+				    		$tore=0;
+				    		 ?>
+				    		@foreach($reviews as $re)
+				    		<?php 
+				    		$tore=$re->review+$tore;
+				    		$cont = 1 + $cont;
+				    		?>
+				    		@endforeach
+				    		<?php  $promre=$tore/$cont; ?>
+				    		<strong>Total de Reviews:</strong>
+				    		<span class="pull-right">{{$cont}}</span>
+				    	</div>
+				   
+				    </div>
+				    <div class="row">
+				    	<div class="col-sm-12">
+				    		<strong>Promedio:</strong>
+				    		<?php $redon=round($promre,2);?>
+				    		<span class="pull-right">{{$redon}}</span>
+				    	</div>
+				    
+				    </div>
+				    <div class="row">
+				    	<div class="col-sm-12">
+				    		<strong>Calificación:</strong>
+				    		@if($promre>=0 && $promre<=2)
+				    		<span class="pull-right text-danger">Calificación BAJA</p>
+							@elseif($promre>2 && $promre<4)
+							<span class="pull-right text-warning">Calificación MEDIA</p>
+							@elseif($promre>=4 && $promre<=5)
+							<span class="pull-right text-success">Calificación ALTA</p>
+							@endif
+
+				    	</div>
+				    	
+				    </div>
+			  	</div>
+			</div>
+
+		</div>
+	</div>		
+	@endif
+</div>
 @endsection
