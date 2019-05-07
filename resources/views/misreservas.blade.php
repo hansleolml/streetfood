@@ -31,7 +31,7 @@
 						<th>Plato</th>
 						<th width="20px">Cantidad</th>
 						<th>Fecha</th>
-						<th>Chef</th>
+						<th>Chef/Comentar</th>
 						<th>Calificación(1 - 5)</th>
 						<th>Calificar</th>
 						<th>Editar</th>
