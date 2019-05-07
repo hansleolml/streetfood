@@ -155,14 +155,25 @@
 							</a>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Media heading
-							<form action="{{url('comentario',$comen->id)}}" method="POST">
-			          		{{csrf_field()}}
-				          		<input type="hidden" name="_method" value="DELETE">
-				          		<button class="btn btn-button btn-danger pull-right">X</button>
-			          		</form>
-							</h4>
-							{{$comen->comentario}}
+							@foreach($usuarios as $us)
+								@if($us->id==$comen->id_clienteFO)
+								<?php $nombrecoment=$us->name." ".$us->apellidos; ?>
+								@endif
+							@endforeach
+							<h4 class="media-heading">{{$nombrecoment}}</h4>
+							<div class="row">
+								<div class="col-md-10">
+								{{$comen->comentario}}
+								</div>
+								<div class="col-md-2">
+									<!-- <a href="{{'/categoria/'.$comen->id.'/edit'}}">x</a> -->
+									<form action="{{url('comentario',$comen->id)}}" method="POST">
+				          			{{csrf_field()}}
+					          			<input type="hidden" name="_method" value="DELETE">
+					          			<button class="btn btn-button btn-danger pull-right">X</button>
+				          			</form>
+								</div>
+							</div>
 						</div>
 					</div>
 					@endforeach

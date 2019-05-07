@@ -58,14 +58,15 @@ class comentarioController extends Controller
      */
     public function show($id)
     {
-        $comentario= Comentario::all();
+        $usuarios= User::all();
+        $comentario= Comentario::where('id_chefFO', $id)->get();
         $user= User::where('id', $id)->get()->first();
         $perfil= Perfil::where('id_usuaFO', $id)->get()->first();
         $idcliente = Auth::id();
         $reviews= Reserva::where('id_chefFO', $id)->get();
         $reserva= Reserva::where('id_chefFO', $id)->where('id_clienteFO', $idcliente)->get();
         //return compact('perfil');
-        return view('verperfil',compact('perfil'),compact('user'))->with(['reviews'=>$reviews])->with(['reserva'=>$reserva])->with(['comentario'=>$comentario]);
+        return view('verperfil',compact('perfil'),compact('user'))->with(['reviews'=>$reviews])->with(['reserva'=>$reserva])->with(['comentario'=>$comentario])->with(['usuarios'=>$usuarios]);
     }
 
     /**
