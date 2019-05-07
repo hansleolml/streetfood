@@ -3,6 +3,7 @@
 namespace StreetFood\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use StreetFood\User;
 use StreetFood\Perfil;
 use StreetFood\Reserva;
@@ -51,9 +52,11 @@ class comentarioController extends Controller
     {
         $user= User::where('id', $id)->get()->first();
         $perfil= Perfil::where('id_usuaFO', $id)->get()->first();
+        $idcliente = Auth::id();
         $reviews= Reserva::where('id_chefFO', $id)->get();
+        $reserva= Reserva::where('id_chefFO', $id)->where('id_clienteFO', $idcliente)->get();
         //return compact('perfil');
-        return view('verperfil',compact('perfil'),compact('user'))->with(['reviews'=>$reviews]);
+        return view('verperfil',compact('perfil'),compact('user'))->with(['reviews'=>$reviews])->with(['reserva'=>$reserva]);
     }
 
     /**

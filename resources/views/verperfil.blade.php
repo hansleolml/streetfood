@@ -137,5 +137,21 @@
 		</div>
 	</div>		
 	@endif
+	@if(count($reserva)!=0)
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Comentarios</h3>
+			  	</div>
+			  	<!-- perfil -->
+			  	<div class="panel-body">
+				    <p>comentar</p>
+			  	</div>
+			</div>
+
+		</div>
+	</div>		
+	@endif
 </div>
 @endsection
