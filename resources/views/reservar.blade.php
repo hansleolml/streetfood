@@ -85,19 +85,37 @@
           @endforeach
           <p align="right">Nro de reservas :  {{$sumrese}} </p>
           @endif
-          <?php $dispo= $n->cantidad-$sumrese; ?>
+          <p class="text-warning">Promoción pague {{$n->promopide}} y lleve {{$n->promolleva}}</p>
+          <?php $dispo= $n->cantidad-$sumrese; 
+          $dispoprom=($dispo* $n->promopide)/$n->promolleva;
+          ?>
           @if($dispo!=0)
-          <form method="POST" action="{{url('reserva')}}">
+          <form class="form-horizontal" method="POST" action="{{url('reserva')}}">
             {{csrf_field()}}
-            <div class="col-md-7">
-              
-              <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="1" max="{{$dispo}}" required="true">
-              <input type="hidden" name="review" value="0">
-              <input type="hidden" name="id_chefFO" value="{{$n->id_usuarioFO}}">
-              <input type="hidden" name="id_produ" value="{{$n->id}}">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 control-label">Pide: </label>
+              <div class="col-md-8">
+                <input type="number" name="pide" class="form-control" placeholder="Pide" min="1" max="{{$dispoprom}}" required="true" id="pide" value="1">
+                <input type="hidden" id="promolleva" value="{{$n->promolleva}}">
+                <input type="hidden" id="promopide" value="{{$n->promopide}}">
+                <input type="hidden" name="review" value="0">
+                <input type="hidden" name="id_chefFO" value="{{$n->id_usuarioFO}}">
+                <input type="hidden" name="id_produ" value="{{$n->id}}">
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Reservar</button>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 control-label">LLeva: </label>
+              <div class="col-md-8">
+              <input type="number" name="cantidad" class="form-control" placeholder="Lleva" min="1" max="{{$dispo}}" required="true" id="lleva" readonly="readonly">
+              </div>
+            </div>
+            <div class="form-group" align="right">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" align="right">Reserva</button>
+              </div>
+            </div>
           </form>
+
           @else
           <div class="center"><p align="center" class="text-danger"><STRONG>No hay platos disponibles</STRONG></p></div>
           @endif
@@ -110,4 +128,21 @@
   
   @endif
 </div>
+<script>
+$(document).ready(function(){
+  var pide=$('#pide').val();
+  var promolleva=$('#promolleva').val();
+  var promopide=$('#promopide').val();
+  var llevara = pide * promolleva/promopide;
+  var llevara = Math.floor(llevara);
+  $('#lleva').val(llevara);
+  $('#pide').on('input', function() {
+    //$('#lleva').text($('#pide').val());
+    var pide=$('#pide').val();
+    var llevara = pide * promolleva/promopide;
+    var llevara = Math.floor(llevara);
+    $('#lleva').val(llevara);
+  });
+});
+</script>
 @endsection

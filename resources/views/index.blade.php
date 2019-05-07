@@ -72,13 +72,13 @@
 							    <div class="col-sm-10" id="alterna">
 							    	<div class="row">
 							    		<div class="col-sm-2">
-									    	<input type="number" class="form-control" name="promopide" value="" id="alter1" placeholder="Cant. Pide" min="1">
+									    	<input type="number" class="form-control" name="promopide" value="1" id="alter1" placeholder="Cant. Pide" min="1">
 									    	@if($errors->has('promocion'))
 										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
 										    @endif
 							    		</div>
 							    		<div class="col-sm-2">
-									    	<input type="number" class="form-control" name="promolleva" value="" id="" placeholder="Cant. Llevar" min="2">
+									    	<input type="number" class="form-control" name="promolleva" value="1" id="" placeholder="Cant. Llevar" min="1">
 									    	@if($errors->has('promocion'))
 										    <span style="color:red;">{{$errors -> first('promocion')}}</span>
 										    @endif
@@ -86,7 +86,7 @@
 							    		<div class="col-sm-4">
 									    	<p class="text-danger">
 									    		*Ejemplo : 1 x 2 , pague 1 y lleve 2.<br>
-									    		*De estar vacio no se aplicara ninguna promoción.
+									    		*De estar 1 x 1 no se aplicará ninguna promoción.
 									    	</p>
 							    		</div>	   		
 							    	</div>
