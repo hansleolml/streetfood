@@ -16,6 +16,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('/producto','productoController');
     Route::resource('/reserva','reservaController');
     Route::resource('/categoria','categoriaController');
+    Route::resource('/comentario','comentarioController');
     Route::resource('/miperfil','perfilController');
     Route::resource('/verperfil','comentarioController');
     Route::get('/crearperfil','perfilController@create');

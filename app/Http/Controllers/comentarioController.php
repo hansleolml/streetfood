@@ -39,7 +39,15 @@ class comentarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $idcliente = Auth::id();
+        $Comentario= new Comentario();
+        $Comentario->comentario=$request->get('comentario');
+        $Comentario->id_reservaFO=$request->get('id_reservaFO');
+        $Comentario->id_chefFO=$request->get('id_chefFO');
+        $Comentario->id_clienteFO=$idcliente;
+        $Comentario->save();
+        
+        return back()->with('status','La categoria fue registrada con exito! :D');
     }
 
     /**
@@ -50,13 +58,14 @@ class comentarioController extends Controller
      */
     public function show($id)
     {
+        $comentario= Comentario::all();
         $user= User::where('id', $id)->get()->first();
         $perfil= Perfil::where('id_usuaFO', $id)->get()->first();
         $idcliente = Auth::id();
         $reviews= Reserva::where('id_chefFO', $id)->get();
         $reserva= Reserva::where('id_chefFO', $id)->where('id_clienteFO', $idcliente)->get();
         //return compact('perfil');
-        return view('verperfil',compact('perfil'),compact('user'))->with(['reviews'=>$reviews])->with(['reserva'=>$reserva]);
+        return view('verperfil',compact('perfil'),compact('user'))->with(['reviews'=>$reviews])->with(['reserva'=>$reserva])->with(['comentario'=>$comentario]);
     }
 
     /**
