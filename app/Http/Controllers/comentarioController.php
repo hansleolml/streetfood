@@ -3,6 +3,10 @@
 namespace StreetFood\Http\Controllers;
 
 use Illuminate\Http\Request;
+use StreetFood\User;
+use StreetFood\Perfil;
+use StreetFood\Reserva;
+use StreetFood\Comentario;
 
 class comentarioController extends Controller
 {
@@ -13,7 +17,7 @@ class comentarioController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -45,7 +49,11 @@ class comentarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $user= User::where('id', $id)->get()->first();
+        $perfil= Perfil::where('id_usuaFO', $id)->get()->first();
+        $reviews= Reserva::where('id_chefFO', $id)->get();
+        //return compact('perfil');
+        return view('verperfil',compact('perfil'),compact('user'))->with(['reviews'=>$reviews]);
     }
 
     /**

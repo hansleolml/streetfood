@@ -17,6 +17,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('/reserva','reservaController');
     Route::resource('/categoria','categoriaController');
     Route::resource('/miperfil','perfilController');
+    Route::resource('/verperfil','comentarioController');
     Route::get('/crearperfil','perfilController@create');
     Route::get('/editar', function () {
 	    return view('editar');

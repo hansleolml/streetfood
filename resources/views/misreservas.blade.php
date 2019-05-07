@@ -51,7 +51,7 @@
 						<td>{{$reser->created_at}}</td>
 						@foreach($user as $us)
 							@if($reser->id_chefFO==$us->id)
-							<td>{{$us->name}} {{$us->apellidos}}</td>
+							<td><a href="{{'/verperfil/'.$reser->id_chefFO}}">{{$us->name}} {{$us->apellidos}}</a></td>
 							@endif
 						@endforeach
 						<td>

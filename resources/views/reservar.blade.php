@@ -54,8 +54,8 @@
             <a href="">
             @foreach($user as $k)
               @if($n->id_usuarioFO==$k->id)
-              {{$k->name}}
-              {{$k->apellidos}}
+              <a href="{{'/verperfil/'.$k->id}}">{{$k->name}}
+              {{$k->apellidos}}</a>
               @endif
             @endforeach
             </a>
