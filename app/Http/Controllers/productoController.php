@@ -20,7 +20,7 @@ class productoController extends Controller
     {
         if (Auth::check()) {
 
-            $producto= Producto::all();
+            $producto= Producto::where('activo',1)->get();
             $user= User::all();
             $reserva= Reserva::all();
             //$question= Question::with('users')->where('usuario.status','=',0)->get();
