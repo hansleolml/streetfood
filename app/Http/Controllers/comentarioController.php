@@ -77,7 +77,8 @@ class comentarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $comentario= Comentario::find($id);
+        // return back(compact('comentario'));
     }
 
     /**
