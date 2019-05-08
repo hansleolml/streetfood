@@ -163,8 +163,9 @@
 							<h4 class="media-heading">{{$nombrecoment}}</h4>
 							<div class="row">
 								<div class="col-md-10">
-								{{$comen->comentario}}
+								{{$comen->comentario}}							
 								</div>
+								@if(auth()->user()->id==$comen->id_clienteFO)
 								<div class="col-md-2">
 									<!-- <a href="{{'/categoria/'.$comen->id.'/edit'}}">x</a> -->
 									<form action="{{url('comentario',$comen->id)}}" method="POST">
@@ -173,6 +174,7 @@
 					          			<button class="btn btn-button btn-danger pull-right">X</button>
 				          			</form>
 								</div>
+								@endif
 							</div>
 						</div>
 					</div>
