@@ -167,7 +167,8 @@ class productoController extends Controller
     public function destroy($id)
     {
         $producto = Producto::find($id);
-        $producto->delete();
+        $producto->activo=0;
+        $producto->save();
         return back()->with('delprodu','El producto fue eliminado');
     }
 }

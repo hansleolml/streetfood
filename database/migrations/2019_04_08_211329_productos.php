@@ -29,6 +29,7 @@ class Productos extends Migration
             $table->text('etiket4')->nullable();
             $table->string('localidad')->nullable();
             $table->integer('cantidad')->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
         });
     }

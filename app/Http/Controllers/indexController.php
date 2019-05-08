@@ -18,7 +18,7 @@ class indexController extends Controller
                 return view('admin')->with(['categoria'=>$categoria]);
             }
             else{
-        		$producto= Producto::all();
+        		$producto= Producto::where('activo',1)->get();
                 $user= User::all();
                 $categoria= Categoria::all();
                 //$question= Question::with('users')->where('usuario.status','=',0)->get();
