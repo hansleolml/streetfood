@@ -64,7 +64,7 @@
 					  		<div class="form-group">
 						    	<label for="miingredientes" class="col-sm-2 control-label">Ingredientes:</label>
 						    	<div class="col-sm-10">
-						    		<textarea class="form-control" name="ingredientes" id="miingredientes" placeholder="Describe los ingredientes que usaste en la preparación (opcional)" rows="3">{{old('ingredientes')}}</textarea>
+						    		<textarea class="form-control" name="ingredientes" id="miingredientes" placeholder="Describe los ingredientes que usaste en la preparación (opcional)" rows="3" required="true">{{old('ingredientes')}}</textarea>
 						    	</div>
 					  		</div>
 					  		<div class="form-group">
