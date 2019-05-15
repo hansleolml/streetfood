@@ -164,12 +164,16 @@
           <p align="right">Precio s./{{$n->precio}}.00</p>
           <p align="right">Nro de platos :  {{$n->cantidad}} </p>
           <p class="text-warning">Promoción pague {{$n->promopide}} y lleve {{$n->promolleva}}</p>
-          	<a href="{{'/producto/'.$n->id.'/edit'}}" class="btn btn-primary" role="button" >Editar producto</a>
-          	<form action="{{url('producto',$n->id)}}" method="POST">
-          		{{csrf_field()}}
-          		<input type="hidden" name="_method" value="DELETE">
-          		<button class="btn btn-button">borrar</button>
-          	</form>
+	      	<form action="{{url('producto',$n->id)}}" method="POST" class="form-inline">
+	      		{{csrf_field()}}
+	      		<div class="form-group">
+	          		<a href="{{'/producto/'.$n->id.'/edit'}}" class="btn btn-primary" role="button" >Editar producto</a>
+	          	</div>
+	      		<div class="form-group pull-right">
+	          		<input type="hidden" name="_method" value="DELETE">
+	          		<button class="btn btn-button">borrar</button>
+	          	</div>
+	      	</form>
           </p>
         </div>
       </div>
