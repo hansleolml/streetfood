@@ -30,6 +30,8 @@
 						<th width="20px">ID</th>
 						<th>Plato</th>
 						<th width="20px">Cantidad</th>
+						<th>Cupon</th>
+						<th>Pagar</th>
 						<th>Fecha</th>
 						<th>Chef/Comentar</th>
 						<th>Calificación(1 - 5)</th>
@@ -45,9 +47,17 @@
 						@foreach($producto as $produc)
 							@if($reser->id_produFO==$produc->id)
 							<td>{{$produc->tituProdu}}</td>
+							<?php $costo =$produc->precio*$reser->cantidad*($produc->promopide/$produc->promolleva); ?>
 							@endif
 						@endforeach
 						<td>{{$reser->cantidad}}</td>
+						<td>{{$reser->cupon}}</td>
+						@foreach($cupon as $cup)
+							@if($reser->id_produFO==$cup->id_produFO && $reser->cupon==$cup->codigo)
+							<?php $costo =($costo*$cup->descuento)/100; ?>
+							@endif
+						@endforeach
+						<td>S./{{$costo}}</td>
 						<td>{{$reser->created_at}}</td>
 						@foreach($user as $us)
 							@if($reser->id_chefFO==$us->id)

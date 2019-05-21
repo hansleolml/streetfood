@@ -20,6 +20,7 @@ class CreateReservasTable extends Migration
             $table->integer('id_clienteFO')->unsigned();
             $table->integer('cantidad')->unsigned();
             $table->integer('review')->unsigned();
+            $table->string('cupon')->nullable();
             $table->timestamps();
         });
     }

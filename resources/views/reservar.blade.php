@@ -109,6 +109,13 @@
               <input type="number" name="cantidad" class="form-control" placeholder="Lleva" min="1" max="{{$dispo}}" required="true" id="lleva" readonly="readonly">
               </div>
             </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 control-label">Cupon: </label>
+              <div class="col-md-8">
+              <p>¿Tienes un cupon?</p>
+              <input type="text" name="cupon" class="form-control" placeholder="Ingrece cupon">
+              </div>
+            </div>
             <div class="form-group" align="right">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-primary" align="right">Reserva</button>

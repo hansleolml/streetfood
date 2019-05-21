@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use StreetFood\Reserva;
 use StreetFood\User;
 use StreetFood\Producto;
+use StreetFood\Cupon;
 
 
 class reservaController extends Controller
@@ -19,10 +20,11 @@ class reservaController extends Controller
     public function index()
     {
         $producto= Producto::all();
+        $cupon= Cupon::all();
         $user= User::all();
         $id = Auth::id();
         $reserva= Reserva::where('id_clienteFO',$id)->paginate();
-        return view('misreservas',compact('reserva'))->with(['producto'=>$producto])->with(['user'=>$user]);
+        return view('misreservas',compact('reserva'))->with(['producto'=>$producto])->with(['user'=>$user])->with(['cupon'=>$cupon]);
     }
 
     /**
@@ -51,7 +53,10 @@ class reservaController extends Controller
         $reserva->id_clienteFO=$id;
         $reserva->cantidad=$request->get('cantidad');
         $reserva->review=$request->get('review');
+        $reserva->cupon=$request->get('cupon');
         $reserva->save();
+
+
         return back()->with('status','El producto fue reservado con exito! :D');
     }
 
