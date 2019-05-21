@@ -180,18 +180,21 @@
 	<script type="text/javascript">
 	$(document).ready(function() {	
 	    function changeColor() {
-	        $.ajax({
-		    url: '{{'/notificacion/'.auth()->user()->id}}', 
-		    method: 'GET',
-		    dataType: "json",
-		    data: "hola",
-		    success: function(data){
-	            alert("hola");
-        		},
-		    })
+	    	$.ajax({
+		        url: '',
+		        type: 'GET',
+		        data: {
+		        	id:'{{auth()->user()->id}}',
+		        },
+		        success: function (data) {
+		            console.log(data);
+		        },
+		        error:function(){
+	              console.log('error');// solo ingresa a esta parte
+	          	}
+		    });
 	    }
-	   
-
+	 
 	    setInterval(changeColor, 3000);
 	});
 	</script>

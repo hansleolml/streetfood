@@ -50,9 +50,11 @@ class notificacionController extends Controller
      */
     public function show($id)
     {
-       if($request->ajax()){
-        return "hola";
-       }
+       // if($request->ajax()){
+       //  string name = "John";
+       //  return Json( new {data=name}); 
+       // }
+
     }
 
     /**
