@@ -3,8 +3,11 @@
 namespace StreetFood\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use StreetFood\Producto;
 use StreetFood\User;
+use StreetFood\Cupon;
+use StreetFood\Reserva;     
 
 class cuponController extends Controller
 {
@@ -15,7 +18,11 @@ class cuponController extends Controller
      */
     public function index()
     {
-        //
+        $producto= Producto::all();
+        $user= User::all();
+        $id = Auth::id();
+        $cupon= Cupon::where('id_chef',$id)->paginate();
+        return view('miscupones')->with(['cupon'=>$cupon])->with(['producto'=>$producto]);
     }
 
     /**
@@ -36,7 +43,15 @@ class cuponController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cupon= new Cupon();
+        $id = Auth::id();
+        $cupon->id_chef=$id;
+        $cupon->id_produFO=$request->get('id_produFO');
+        $cupon->descuento=$request->get('descuento');
+        $cupon->codigo=$request->get('codigo');
+        $cupon->cantidad=$request->get('cantidad');
+        $cupon->save();
+        return back()->with('status','El cupon fue creado con exito! :D');
     }
 
     /**
@@ -58,7 +73,8 @@ class cuponController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cupon= Cupon::find($id);
+        return view('cuponedit',compact('cupon'));
     }
 
     /**
@@ -70,7 +86,12 @@ class cuponController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cupon= Cupon::find($id);
+        $cupon->descuento=$request->get('descuento');
+        $cupon->codigo=$request->get('codigo');
+        $cupon->cantidad=$request->get('cantidad');
+        $cupon->save();
+        return redirect('miscupones')->with('status', "El cupon fue editado con exito! :D");
     }
 
     /**
@@ -81,6 +102,8 @@ class cuponController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Cupon = Cupon::find($id);
+        $Cupon->delete();
+        return redirect('miscupones')->with('delprodu','El cupon fue eliminado');
     }
 }

@@ -174,6 +174,34 @@
 	          		<button class="btn btn-button">borrar</button>
 	          	</div>
 	      	</form>
+	      	<hr>
+	      	<form class="form-horizontal" method="POST" action="{{url('cupon')}}">
+            {{csrf_field()}}
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 control-label">Descuento %:</label>
+              <div class="col-md-8">
+                <input type="number" name="descuento" class="form-control" placeholder="% descuento" min="1" max="100" required="true" id="pide" value="1">
+                <input type="hidden" name="id_produFO" value="{{$n->id}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 control-label">Cantidad: </label>
+              <div class="col-md-8">
+              <input type="number" name="cantidad" class="form-control" placeholder="Lleva" min="1" max="" required="true" id="lleva">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 control-label">Codigo: </label>
+              <div class="col-md-8">
+              <input type="text" name="codigo" class="form-control" placeholder="Ingrese codigo de descuento" required="true" id="lleva">
+              </div>
+            </div>
+            <div class="form-group" align="right">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" align="right">Crear Cupon</button>
+              </div>
+            </div>
+          </form>
           </p>
         </div>
       </div>

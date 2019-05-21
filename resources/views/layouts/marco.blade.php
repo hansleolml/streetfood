@@ -69,11 +69,7 @@
 				        		<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
 			        		</a>
 			        	</li>
-			        	<li>
-			        		<a href="#">
-				        		Mis interacciones
-			        		</a>
-			        	</li><!--  Mis preguntas, respuestas y notificaciones-->
+						<!--  Mis preguntas, respuestas y notificaciones-->
 			        	<li class="dropdown">
 				          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 				          		Etiquetas<span class="caret"></span>
@@ -109,6 +105,12 @@
 
 			      	</ul>
 		      		<ul class="nav navbar-nav navbar-right">
+		      			<li>
+		        			<a href="{{ url('/miscupones') }}">
+		        				Mis Cupones
+		        			<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 
+		        			</a>
+		        		</li>
 		      			<li>
 		        			<a href="{{ url('/misreservas') }}">
 		        				Mis Reservas
