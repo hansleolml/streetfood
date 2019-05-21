@@ -70,7 +70,7 @@
 			        		</a>
 			        	</li>
 						<!--  Mis preguntas, respuestas y notificaciones-->
-			        	<li class="dropdown">
+			        	<!-- <li class="dropdown">
 				          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 				          		Etiquetas<span class="caret"></span>
 				          	</a>
@@ -83,7 +83,7 @@
 					            <li role="separator" class="divider"></li>
 					            <li><a href="#">One more separated link</a></li>
 				          	</ul>
-			        	</li>
+			        	</li> -->
 			      	<form class="navbar-form navbar-left">
 			        	<div class="form-group">
 			          		<input type="text" class="form-control" placeholder="Buscar comidas" required="true" autofocus>
@@ -121,6 +121,11 @@
 		        			<a href="{{ url('/miperfil') }}">
 		        				{{auth()->user()->name}}
 		        			<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+		        			</a>
+		        		</li>
+		        		<li>
+		        			<a href="{{ url('/misnotificaciones') }}">
+		        			<span class="glyphicon glyphicon-globe" aria-hidden="true"><span class="badge">1</span></span> 
 		        			</a>
 		        		</li>
 		        		<li class="dropdown">
@@ -172,5 +177,23 @@
 	</section>
 	<div class="container-fluid">
 	</div>
+	<script type="text/javascript">
+	$(document).ready(function() {	
+	    function changeColor() {
+	        $.ajax({
+		    url: '{{'/notificacion/'.auth()->user()->id}}', 
+		    method: 'GET',
+		    dataType: "json",
+		    data: "hola",
+		    success: function(data){
+	            alert("hola");
+        		},
+		    })
+	    }
+	   
+
+	    setInterval(changeColor, 3000);
+	});
+	</script>
 </body>
 </html>

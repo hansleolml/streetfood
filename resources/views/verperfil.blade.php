@@ -1,7 +1,7 @@
 @extends('layouts.marco')
 @section('externolink')
-<link href="tokenfield/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet">
-	<link href="jquery-ui/jquery-ui.min.css" rel="stylesheet">
+<link href="{{asset('tokenfield/dist/css/bootstrap-tokenfield.min.css')}}" rel="stylesheet">
+	<link href="{{asset('jquery-ui/jquery-ui.min.css')}}" rel="stylesheet">
 
 	<!-- <link href="estilos/carousel.css" rel="stylesheet"> -->
     <link href="{{asset('css/product.css')}}" rel="stylesheet">

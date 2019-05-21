@@ -79,3 +79,7 @@
 	@endif
 </div>
 @endsection
+@section('scriptjquery')
+<p>asdadasd</p>
+
+@endsection

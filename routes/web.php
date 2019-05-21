@@ -12,9 +12,11 @@ Route::group(['middleware'=>'auth'],function(){
  
 	Route::get('/miperfil', 'perfilController@index');
 	Route::get('/misreservas', 'reservaController@index');
+    Route::get('/misnotificaciones', 'notificacionController@index');
     Route::get('/miscupones', 'cuponController@index');
 	Route::get('/reserva/review/{id}', 'reservaController@review');
     Route::resource('/producto','productoController');
+    Route::resource('/notificacion','notificacionController');
     Route::resource('/reserva','reservaController');
     Route::resource('/cupon','cuponController');
     Route::resource('/categoria','categoriaController');

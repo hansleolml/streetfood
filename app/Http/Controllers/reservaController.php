@@ -8,7 +8,7 @@ use StreetFood\Reserva;
 use StreetFood\User;
 use StreetFood\Producto;
 use StreetFood\Cupon;
-
+use StreetFood\Notificacion;
 
 class reservaController extends Controller
 {
@@ -55,7 +55,18 @@ class reservaController extends Controller
         $reserva->review=$request->get('review');
         $reserva->cupon=$request->get('cupon');
         $reserva->save();
+        /*aca se crea la notificación */ 
 
+        $notificacion= new Notificacion();
+
+        $id = Auth::id();
+        $nombre = Auth::user()->name;
+        $apellidos = Auth::user()->apellidos;
+        $notificacion->id_emisor=$id;
+        $notificacion->id_receptor=$request->get('id_chefFO');
+        $mensaje = "El cliente ".$nombre." ".$apellidos." hiso una reservación de ".$request->get('cantidad')." platos";
+        $notificacion->mensaje=$mensaje;
+        $notificacion->save();
 
         return back()->with('status','El producto fue reservado con exito! :D');
     }
@@ -119,7 +130,22 @@ class reservaController extends Controller
      */
     public function destroy($id)
     {
-        $reserva = Reserva::find($id);
+        $reserva = Reserva::find($id);        
+
+        /*aca se crea la notificación */ 
+
+        $notificacion= new Notificacion();
+
+        $id = Auth::id();
+        $nombre = Auth::user()->name;
+        $apellidos = Auth::user()->apellidos;
+        $notificacion->id_emisor=$id;
+        $notificacion->id_receptor=$reserva->id_chefFO;
+        $mensaje = "El cliente ".$nombre." ".$apellidos." ha cancelado su reservación de ".$reserva->cantidad." platos";
+        $notificacion->mensaje=$mensaje;
+        $notificacion->save();
+
+        /*se elimina la reserva luego de crear la notificación*/
         $reserva->delete();
         return redirect('misreservas')->with('delprodu','La reserva fue eliminada');
     }
