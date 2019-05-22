@@ -50,9 +50,15 @@ class notificacionController extends Controller
      */
     public function show($id)
     {
-       // if($request->ajax()){
-       //  string name = "John";
-       //  return Json( new {data=name}); 
+       // if($id->ajax()){
+       //  $dato='in here';
+        $id = Auth::id();
+        $notificacion= Notificacion::all();
+        $notificacion= Notificacion::where('id_receptor',$id)->where('visto', '0')->get();
+        $contarnoti=count($notificacion);
+        return response()->json([
+            'cantidad' => $contarnoti
+        ]);
        // }
 
     }

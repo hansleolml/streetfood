@@ -125,7 +125,9 @@
 		        		</li>
 		        		<li>
 		        			<a href="{{ url('/misnotificaciones') }}">
-		        			<span class="glyphicon glyphicon-globe" aria-hidden="true"><span class="badge">1</span></span> 
+		        			<span class="glyphicon glyphicon-globe" aria-hidden="true"><span class="badge">
+		        				<span id="contarnoti"></span>
+		        			</span></span> 
 		        			</a>
 		        		</li>
 		        		<li class="dropdown">
@@ -181,13 +183,11 @@
 	$(document).ready(function() {	
 	    function changeColor() {
 	    	$.ajax({
-		        url: '',
-		        type: 'GET',
-		        data: {
-		        	id:'{{auth()->user()->id}}',
-		        },
+		        url: '{{url("notificacion/".auth()->user()->id)}}',
+		        type: 'get',
 		        success: function (data) {
-		            console.log(data);
+		            $( "#contarnoti" ).text(data.cantidad);
+
 		        },
 		        error:function(){
 	              console.log('error');// solo ingresa a esta parte
@@ -195,7 +195,7 @@
 		    });
 	    }
 	 
-	    setInterval(changeColor, 3000);
+	    setInterval(changeColor, 1000);
 	});
 	</script>
 </body>
