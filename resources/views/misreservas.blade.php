@@ -54,7 +54,7 @@
 						<td>{{$reser->cupon}}</td>
 						@foreach($cupon as $cup)
 							@if($reser->id_produFO==$cup->id_produFO && $reser->cupon==$cup->codigo)
-							<?php $costo =($costo*$cup->descuento)/100; ?>
+							<?php $costo =($costo*(100-$cup->descuento))/100; ?>
 							@endif
 						@endforeach
 						<td>S./{{$costo}}</td>
