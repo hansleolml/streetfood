@@ -185,6 +185,9 @@
 		        type: 'get',
 		        success: function (data) {
 		            $( "#contarnoti" ).text(data.cantidad);
+		            if (data.cantidad>=1) {
+		            	$(".badge").css("background-color","red");
+		            }
 
 		        },
 		        error:function(){
