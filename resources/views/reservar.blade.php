@@ -95,9 +95,9 @@
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-4 control-label">Pide: </label>
               <div class="col-md-8">
-                <input type="number" name="pide" class="form-control" placeholder="Pide" min="1" max="{{$dispoprom}}" required="true" id="pide" value="1">
-                <input type="hidden" id="promolleva" value="{{$n->promolleva}}">
-                <input type="hidden" id="promopide" value="{{$n->promopide}}">
+                <input type="number" name="pide" class="pide form-control" placeholder="Pide" min="1" max="{{$dispoprom}}" required="true" id="pide" value="1">
+                <input type="hidden" id="promolleva" class="promolleva" value="{{$n->promolleva}}">
+                <input type="hidden" id="promopide" class="promopide"   value="{{$n->promopide}}">
                 <input type="hidden" name="review" value="0">
                 <input type="hidden" name="id_chefFO" value="{{$n->id_usuarioFO}}">
                 <input type="hidden" name="id_produ" value="{{$n->id}}">
@@ -106,7 +106,7 @@
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-4 control-label">LLeva: </label>
               <div class="col-md-8">
-              <input type="number" name="cantidad" class="form-control" placeholder="Lleva" min="1" max="{{$dispo}}" required="true" id="lleva" readonly="readonly">
+              <input type="number" name="cantidad" class="lleva form-control" placeholder="Lleva" min="1" max="{{$dispo}}" required="true" id="lleva" readonly="readonly">
               </div>
             </div>
             <div class="form-group">
@@ -137,18 +137,29 @@
 </div>
 <script>
 $(document).ready(function(){
-  var pide=$('#pide').val();
-  var promolleva=$('#promolleva').val();
-  var promopide=$('#promopide').val();
-  var llevara = pide * promolleva/promopide;
-  var llevara = Math.floor(llevara);
-  $('#lleva').val(llevara);
-  $('#pide').on('input', function() {
-    //$('#lleva').text($('#pide').val());
-    var pide=$('#pide').val();
+
+  $(".pide").each(function() {
+    var pide = $(this).val();
+    var promolleva=$(this).siblings('.promolleva').val();
+    var promopide=$(this).siblings('.promopide').val();
     var llevara = pide * promolleva/promopide;
     var llevara = Math.floor(llevara);
-    $('#lleva').val(llevara);
+    $(this).parent().parent().next().children('.col-md-8').children('.lleva').val(llevara);
+    //$(this).parent().css({"color": "red", "border": "2px solid red"});
+
+    //alert( $(this).parent().parent().next().children('.col-md-8').children('.lleva').val());
+  });
+  // var llevara = pide * promolleva/promopide;
+  // var llevara = Math.floor(llevara);
+  // $('.lleva').val(llevara);
+  $('.pide').on('input', function() {
+    //$('#lleva').text($('#pide').val());
+    var pide = $(this).val();
+    var promolleva=$(this).siblings('.promolleva').val();
+    var promopide=$(this).siblings('.promopide').val();
+    var llevara = pide * promolleva/promopide;
+    var llevara = Math.floor(llevara);
+    $(this).parent().parent().next().children('.col-md-8').children('.lleva').val(llevara);
   });
 });
 </script>

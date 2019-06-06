@@ -36,7 +36,7 @@
 	  right: 0;
 	}
 	</style>
-
+	
 @endsection
 @section('content')
 <div class="col-md-8">
