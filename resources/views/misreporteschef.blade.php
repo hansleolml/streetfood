@@ -45,10 +45,10 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Consulta de reservas por categoria </h3>
+			    	<h3 class="panel-title">Consulta de reservas por Chef </h3>
 			  	</div>
 			  	<div class="panel-body">
-					<form class="form-horizontal" role="form" method="POST" action="{{url('reporte/reservas')}}">
+					<form class="form-horizontal" role="form" method="POST" action="{{url('reporte/chef')}}">
 						{{csrf_field()}}
 					  	<div class="form-group">
 					    	<label for="fecha_inicio" class="col-sm-2 control-label">Fecha de inicio: </label>
@@ -102,10 +102,10 @@
 						@endforeach
 						@foreach($user as $us)
 							@if($us->id==$reser->id_chefFO)
-							<td>{{$us->name}}{{$us->apellidos}}</td>
+							<td>{{$us->name}} {{$us->apellidos}}</td>
 							@endif
 							@if($us->id==$reser->id_clienteFO)
-							<td>{{$us->name}}{{$us->apellidos}}</td>
+							<td>{{$us->name}} {{$us->apellidos}}</td>
 							@endif
 						@endforeach
 						<td>{{$reser->cantidad}}</td>
@@ -158,12 +158,12 @@ var ndesa= 0;
 var ncena= 0;
 var nalmuer= 0;
 $('#example tr td').each(function() {
-   if(hola%7==2){ //desayuno
+   if(hola%7==3){ //desayuno
    	var customerId = $(this).text();
-   	if (customerId=="desayuno") {
+   	if (customerId=="hans quiroz") {
    		ndesa = ndesa +1 ;
    	}  
-   	else if (customerId=="Cena") {
+   	else if (customerId=="alex cordova") {
    		ncena = ncena +1 ;
    	} 
    	else if (customerId=="almuerzo") {
@@ -178,20 +178,16 @@ var chart = AmCharts.makeChart("chartdiv", {
   "marginRight": 70,
   "dataProvider": [
   {
-    "categoria": "desayuno",
+    "categoria": "hans quiroz",
     "pedido": ndesa,
     "color": "#FF0F00"
   },
    {
-    "categoria": "Almuerzo",
-    "pedido": nalmuer,
-    "color": "#FF6600"
-  }
-  , {
-    "categoria": "Cena",
+    "categoria": "Alex Cordova",
     "pedido": ncena,
-    "color": "#CD0D74"
-  }],
+    "color": "#FF6600"
+  },
+  ],
   "valueAxes": [{
     "axisAlpha": 0,
     "position": "left",

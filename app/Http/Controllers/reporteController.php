@@ -91,15 +91,38 @@ class reporteController extends Controller
         $reserva= Reserva::whereBetween('created_at', [$fecha_inicio, $fecha_fin])->get();
         $user= User::all();
         $producto= Producto::all();
-
+        // $location =array(fecha_inicio, $fecha_fin);
+        // return compact('location');
         return view('misreportes')->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]);   
     }
-    public function reporte_1($id)
+    public function cliente_index()
     {
-        //
+        return view('misreportes2');
     }
-    public function reporte_31($id)
+    public function reporte_cliente(Request $request)
     {
-        //
+        $fecha_inicio=$request->get('fecha_inicio');
+        $fecha_fin=$request->get('fecha_fin');
+        $reserva= Reserva::whereBetween('created_at', [$fecha_inicio, $fecha_fin])->get();
+        $user= User::all();
+        $producto= Producto::all();
+        // $location =array(fecha_inicio, $fecha_fin);
+        // return compact('location');
+        return view('misreportes2')->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]); 
+    }
+    public function chef_index()
+    {
+        return view('misreporteschef');
+    }
+    public function reporte_chef(Request $request)
+    {
+        $fecha_inicio=$request->get('fecha_inicio');
+        $fecha_fin=$request->get('fecha_fin');
+        $reserva= Reserva::whereBetween('created_at', [$fecha_inicio, $fecha_fin])->get();
+        $user= User::all();
+        $producto= Producto::all();
+        // $location =array(fecha_inicio, $fecha_fin);
+        // return compact('location');
+        return view('misreporteschef')->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]); 
     }
 }

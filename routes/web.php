@@ -15,8 +15,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/misnotificaciones', 'notificacionController@index');
     Route::get('/miscupones', 'cuponController@index');
     Route::get('/misreportes', 'reporteController@index');
+    Route::get('/misreportes_cliente', 'reporteController@cliente_index');
+    Route::get('/misreportes_chef', 'reporteController@chef_index');
 	Route::get('/reserva/review/{id}', 'reservaController@review');
     Route::post('/reporte/reservas', 'reporteController@reporte_reservas');
+    Route::post('/reporte/clientes', 'reporteController@reporte_cliente');
+    Route::post('/reporte/chef', 'reporteController@reporte_chef');
     Route::resource('/reporte','reporteController');
     Route::resource('/producto','productoController');
     Route::resource('/notificacion','notificacionController');

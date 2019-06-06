@@ -62,13 +62,19 @@
 		    	</div>
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      		<ul class="nav navbar-nav">
-			        	<li class="active">
-			        		<a href="#">
-				        		Notificaciones
-				        		<span class="sr-only">INICIO</span>
-				        		<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-			        		</a>
-			        	</li>
+			        <!-- 	<li>
+			        		<a href="{{ url('/misreportes') }}">
+			        		Mis reportes
+		        			</a>
+			        	</li> -->
+			        	<li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
+			              <ul class="dropdown-menu">
+			                <li><a href="{{ url('/misreportes') }}">Reporte de Reserva por Categorias</a></li>
+			               	<li><a href="{{ url('/misreportes_cliente') }}">Reporte de Reserva por clientes</a></li>
+			                <li><a href="{{ url('/misreportes_chef') }}">Reporte de Reserva por Chefs</a></li>
+			               </ul>
+			            </li>
 		        	<li>
 		        		<a href="{{ url('/') }}">
 			        		Categorias de Comida
@@ -76,6 +82,7 @@
 		        	</li>
 
 			      	</ul>
+
 		      		<ul class="nav navbar-nav navbar-right">
 		        		<li>
 		        			<a href="{{ url('/miperfil') }}">
