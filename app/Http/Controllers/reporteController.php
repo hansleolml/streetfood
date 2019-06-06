@@ -4,6 +4,8 @@ namespace StreetFood\Http\Controllers;
 
 use Illuminate\Http\Request;
 use StreetFood\Reserva;
+use StreetFood\Producto;
+use StreetFood\User;
 
 class reporteController extends Controller
 {
@@ -87,7 +89,10 @@ class reporteController extends Controller
         $fecha_inicio=$request->get('fecha_inicio');
         $fecha_fin=$request->get('fecha_fin');
         $reserva= Reserva::whereBetween('created_at', [$fecha_inicio, $fecha_fin])->get();
-        return view('misreportes')->with(['reserva'=>$reserva]);   
+        $user= User::all();
+        $producto= Producto::all();
+
+        return view('misreportes')->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]);   
     }
     public function reporte_1($id)
     {
