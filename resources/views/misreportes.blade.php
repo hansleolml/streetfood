@@ -53,7 +53,7 @@
 					  	<div class="form-group">
 					    	<label for="fecha_inicio" class="col-sm-2 control-label">Fecha de inicio: </label>
 					    	<div class="col-sm-10">
-						    	<input type="date" class="form-control" name="fecha_inicio" value="" id="fecha_inicio" required>
+						    	<input type="date" class="form-control" name="fecha_inicio" value="" id="fecha_inicio" value="" required>
 						    </div>
 					  	</div>
 					  	<div class="form-group">
