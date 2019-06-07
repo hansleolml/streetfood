@@ -16,7 +16,9 @@ class reporteController extends Controller
      */
     public function index()
     {
-       return view('misreportes');
+       $fecha_inicio='';
+       $fecha_fin='';
+       return view('misreportes',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
     }
 
     /**
@@ -93,7 +95,7 @@ class reporteController extends Controller
         $producto= Producto::all();
         // $location =array(fecha_inicio, $fecha_fin);
         // return compact('location');
-        return view('misreportes')->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]);   
+        return view('misreportes',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin])->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]);   
     }
     public function cliente_index()
     {

@@ -53,13 +53,13 @@
 					  	<div class="form-group">
 					    	<label for="fecha_inicio" class="col-sm-2 control-label">Fecha de inicio: </label>
 					    	<div class="col-sm-10">
-						    	<input type="date" class="form-control" name="fecha_inicio" value="" id="fecha_inicio" value="" required>
+						    	<input type="date" class="form-control" name="fecha_inicio" value="{{$fecha_inicio}}" id="fecha_inicio" value="" required>
 						    </div>
 					  	</div>
 					  	<div class="form-group">
 					    	<label for="fecha_fin" class="col-sm-2 control-label">Fecha fin: </label>
 						    <div class="col-sm-10">
-						    	<input type="date" class="form-control" name="fecha_fin" value="" id="fecha_fin" required>
+						    	<input type="date" class="form-control" name="fecha_fin" value="{{$fecha_fin}}" id="fecha_fin" required>
 						    </div>
 					  	</div>
 				  		<div class="form-group">
