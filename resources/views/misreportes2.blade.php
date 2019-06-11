@@ -288,20 +288,9 @@ var ids = ["chartdiv"];
       "columnGap": 10
     });
 
-    // Let's add a custom title
- 	// layout.content.push({
-  //     "image": document.getElementById("imagen").src ,
-  //     "fit": [100, 100]
-  //   });
-    // layout.content.push({
-    //   "text": document.getElementById("titulo").innerHTML,
-    //   "fontSize": 20
-    // });
   layout.content.push({
       "stack": ["\n"]
     });
-    // Now let's grab actual content from our <p> intro ta
-    // Add bigger chart
     layout.content.push({
       "image": charts["chartdiv"].exportedImage,
       "fit": [523, 300]
@@ -309,44 +298,9 @@ var ids = ["chartdiv"];
   	layout.content.push({
       "stack": ["\n"]
     });
-    // Let's add a table
-    // layout.content.push({
-    //   "table": {
-    //     // headers are automatically repeated if the table spans over multiple pages
-    //     // you can declare how many rows should be treated as headers
-    //     "headerRows": 1,
-    //     "widths": ["16%", "16%", "16%", "16%", "16%", "*"],
-    //     "body": [
-    //       ["USA", "UK", "Canada", "Japan", "France", "Brazil"],
-    //       ["5000", "4500", "5100", "1500", "9600", "2500"],
-    //       ["5000", "4500", "5100", "1500", "9600", "2500"],
-    //       ["5000", "4500", "5100", "1500", "9600", "2500"]
-    //     ]
-    //   }
-    // });
     layout.content.push({
       "stack": ["\n"]
     });
-    
-    // Add chart and text next to each other
-    // layout.content.push({
-    //   "columns": [{
-    //     "width": "25%",
-    //     "image": charts["chartdiv"].exportedImage,
-    //     "fit": [125, 300]
-    //   }, {
-    //     "width": "*",
-    //     "stack": [
-    //       document.getElementById("note1").innerHTML,
-    //       "\n\n",
-    //       document.getElementById("note2").innerHTML
-    //     ]
-    //   }],
-    //   "columnGap": 10
-    // });
-
-    // Trigger the generation and download of the PDF
-    // We will use the first chart as a base to execute Export on
     chart["export"].toPDF(layout, function(data) {
       this.download(data, "application/pdf", "amCharts.pdf");
     });
