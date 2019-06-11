@@ -18,8 +18,12 @@ class reporteController extends Controller
     {
        $fecha_inicio='';
        $fecha_fin='';
-       //return view('misreportes',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
-       return view('reportesprueba',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
+       return view('misreportes',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
+       //return view('reportesprueba',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
+    }
+    public function pruebareporte()
+    {
+       return view('reportesprueba');
     }
 
     /**
