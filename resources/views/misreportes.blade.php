@@ -363,7 +363,7 @@ var ids = ["chartdiv"];
     // Trigger the generation and download of the PDF
     // We will use the first chart as a base to execute Export on
     chart["export"].toPDF(layout, function(data) {
-      this.download(data, "application/pdf", "amCharts.pdf");
+      this.download(data, "application/pdf", "ReporteCategoria.pdf");
     });
 
   }
