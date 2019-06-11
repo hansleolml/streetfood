@@ -22,6 +22,8 @@
 	<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+	<script src="https://www.amcharts.com/lib/3/pie.js"></script>
+	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 	<script type="text/javascript" src="{{asset('js/tags.js')}}"></script>
@@ -114,7 +116,9 @@
 					@endforeach	
 				</tbody>
 			</table>
-			<div id="chartdiv"></div>	
+			<div id="chartdiv">
+				<input type="button" value="Export to PDF" onclick="exportReport();" />
+			</div>	
 			@endif
 		</div>
 	</div>	
@@ -221,5 +225,56 @@ var chart = AmCharts.makeChart("chartdiv", {
   }
 
 });
+
+AmCharts.makeChart("chartdiv4", {
+  "type": "pie",
+  "theme": "light",
+  "dataProvider": [{
+    "country": "Lithuania",
+    "litres": 501.9
+  }, {
+    "country": "Czech Republic",
+    "litres": 301.9
+  }, {
+    "country": "Ireland",
+    "litres": 201.1
+  }, {
+    "country": "Germany",
+    "litres": 165.8
+  }, {
+    "country": "Australia",
+    "litres": 139.9
+  }, {
+    "country": "Austria",
+    "litres": 128.3
+  }, {
+    "country": "UK",
+    "litres": 99
+  }, {
+    "country": "Belgium",
+    "litres": 60
+  }, {
+    "country": "The Netherlands",
+    "litres": 50
+  }],
+  "valueField": "litres",
+  "titleField": "country",
+  "pullOutRadius": 10,
+  "labelsEnabled": false,
+  "titles": [{
+    "text": "Fourth chart"
+  }],
+  "export": {
+    "enabled": true,
+    "menu": []
+  }
+});
+
+/**
+ * Define export function
+ */
+function exportReport() {
+  console.log("Starting export...");
+}
 </script>
 @endsection
