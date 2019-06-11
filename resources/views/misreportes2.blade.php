@@ -45,7 +45,7 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Consulta de reservas por Cliente </h3>
+			    	<h3 class="panel-title">Top de los 10 clientes con más pedidos </h3>
 			  	</div>
 			  	<div class="panel-body">
 					<form class="form-horizontal" role="form" method="POST" action="{{url('reporte/clientes')}}">
@@ -217,5 +217,141 @@ var chart = AmCharts.makeChart("chartdiv", {
   }
 
 });
+
+function exportReport() {
+
+  // So that we know export was started
+  console.log("Starting export...");
+
+  // Define IDs of the charts we want to include in the report
+  // var ids = ["chartdiv1", "chartdiv"];
+var ids = ["chartdiv"];
+  // Collect actual chart objects out of the AmCharts.charts array
+  var charts = {},
+    charts_remaining = ids.length;
+  for (var i = 0; i < ids.length; i++) {
+    for (var x = 0; x < AmCharts.charts.length; x++) {
+      if (AmCharts.charts[x].div.id == ids[i])
+        charts[ids[i]] = AmCharts.charts[x];
+    }
+  }
+
+  // Trigger export of each chart
+  for (var x in charts) {
+    if (charts.hasOwnProperty(x)) {
+      var chart = charts[x];
+      chart["export"].capture({}, function() {
+        this.toJPG({}, function(data) {
+
+          // Save chart data into chart object itself
+          this.setup.chart.exportedImage = data;
+
+          // Reduce the remaining counter
+          charts_remaining--;
+
+          // Check if we got all of the charts
+          if (charts_remaining == 0) {
+            // Yup, we got all of them
+            // Let's proceed to putting PDF together
+            generatePDF();
+          }
+
+        });
+      });
+    }
+  }
+
+  function generatePDF() {
+
+    // Log
+    console.log("Generating PDF...");
+
+    // Initiliaze a PDF layout
+    var layout = {
+      "content": []
+    };
+
+    layout.content.push({
+      "columns": [{
+        "width": "25%",
+        "image": document.getElementById("imagen").src,
+        "fit": [100, 100]
+      }, {
+        "width": "*",
+        "stack": [
+          document.getElementById("titulo").innerHTML,
+          "\n\n",
+          document.getElementById("diahoy").innerHTML,
+        ],
+        "fontSize": 17
+      }],
+      "columnGap": 10
+    });
+
+    // Let's add a custom title
+ 	// layout.content.push({
+  //     "image": document.getElementById("imagen").src ,
+  //     "fit": [100, 100]
+  //   });
+    // layout.content.push({
+    //   "text": document.getElementById("titulo").innerHTML,
+    //   "fontSize": 20
+    // });
+  layout.content.push({
+      "stack": ["\n"]
+    });
+    // Now let's grab actual content from our <p> intro ta
+    // Add bigger chart
+    layout.content.push({
+      "image": charts["chartdiv"].exportedImage,
+      "fit": [523, 300]
+    });
+  	layout.content.push({
+      "stack": ["\n"]
+    });
+    // Let's add a table
+    // layout.content.push({
+    //   "table": {
+    //     // headers are automatically repeated if the table spans over multiple pages
+    //     // you can declare how many rows should be treated as headers
+    //     "headerRows": 1,
+    //     "widths": ["16%", "16%", "16%", "16%", "16%", "*"],
+    //     "body": [
+    //       ["USA", "UK", "Canada", "Japan", "France", "Brazil"],
+    //       ["5000", "4500", "5100", "1500", "9600", "2500"],
+    //       ["5000", "4500", "5100", "1500", "9600", "2500"],
+    //       ["5000", "4500", "5100", "1500", "9600", "2500"]
+    //     ]
+    //   }
+    // });
+    layout.content.push({
+      "stack": ["\n"]
+    });
+    
+    // Add chart and text next to each other
+    // layout.content.push({
+    //   "columns": [{
+    //     "width": "25%",
+    //     "image": charts["chartdiv"].exportedImage,
+    //     "fit": [125, 300]
+    //   }, {
+    //     "width": "*",
+    //     "stack": [
+    //       document.getElementById("note1").innerHTML,
+    //       "\n\n",
+    //       document.getElementById("note2").innerHTML
+    //     ]
+    //   }],
+    //   "columnGap": 10
+    // });
+
+    // Trigger the generation and download of the PDF
+    // We will use the first chart as a base to execute Export on
+    chart["export"].toPDF(layout, function(data) {
+      this.download(data, "application/pdf", "amCharts.pdf");
+    });
+
+  }
+}
 </script>
 @endsection
