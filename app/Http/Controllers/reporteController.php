@@ -103,8 +103,10 @@ class reporteController extends Controller
         return view('misreportes',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin])->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]);   
     }
     public function cliente_index()
-    {
-        return view('misreportes2');
+    {   
+        $fecha_inicio='';
+        $fecha_fin='';
+        return view('misreportes2',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
     }
     public function reporte_cliente(Request $request)
     {
@@ -115,11 +117,13 @@ class reporteController extends Controller
         $producto= Producto::all();
         // $location =array(fecha_inicio, $fecha_fin);
         // return compact('location');
-        return view('misreportes2')->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]); 
+        return view('misreportes2',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin])->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]); 
     }
     public function chef_index()
     {
-        return view('misreporteschef');
+        $fecha_inicio=$request->get('fecha_inicio');
+        $fecha_fin=$request->get('fecha_fin');
+        return view('misreporteschef',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
     }
     public function reporte_chef(Request $request)
     {
@@ -130,6 +134,6 @@ class reporteController extends Controller
         $producto= Producto::all();
         // $location =array(fecha_inicio, $fecha_fin);
         // return compact('location');
-        return view('misreporteschef')->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]); 
+        return view('misreporteschef',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin])->with(['reserva'=>$reserva])->with(['producto'=>$producto])->with(['user'=>$user]); 
     }
 }
