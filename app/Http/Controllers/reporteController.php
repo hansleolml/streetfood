@@ -121,8 +121,8 @@ class reporteController extends Controller
     }
     public function chef_index()
     {
-        $fecha_inicio=$request->get('fecha_inicio');
-        $fecha_fin=$request->get('fecha_fin');
+        $fecha_inicio="";
+        $fecha_fin="";
         return view('misreporteschef',['fecha_inicio'=>$fecha_inicio,'fecha_fin'=>$fecha_fin]);
     }
     public function reporte_chef(Request $request)
