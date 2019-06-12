@@ -154,9 +154,7 @@ $(document).ready(function() {
 	});
 	$('#example').DataTable( {
         dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+        buttons: ['excel']
     } );
     $("#chartdiv").click(function() {
     	$('html,body').animate({
@@ -177,12 +175,57 @@ $('#example tr td').each(function() {
    	else if (customerId=="Cena") {
    		ncena = ncena +1 ;
    	} 
-   	else if (customerId=="almuerzo") {
+   	else if (customerId=="almuerzos") {
    		nalmuer = nalmuer +1 ;
    	}   
    }
    hola = hola + 1;
 });
+
+var clientearray=[];
+	var countarray = 0;
+	var cellVal_cant= 0;
+	var cellVal_cant2= 0;
+	var cellVal_cant3= 0;
+    var oTable = document.getElementById('example');
+
+    //gets rows of table
+    var rowLength = oTable.rows.length;
+
+    //loops through rows    
+    for (i = 0; i < rowLength; i++){
+
+      //gets cells of current row  
+       var oCells = oTable.rows.item(i).cells;
+
+       //gets amount of cells of current row
+       var cellLength = oCells.length;
+
+       //loops through each cell in current row
+       for(var j = 0; j < cellLength; j++){
+
+              // get your cell info here
+
+              var cellVal = oCells.item(j).innerHTML;
+              if (j==2 && i!=0) {
+	              //alert(cellVal);
+	              //clientearray[countarray]=cellVal;
+	              // countarray=countarray+1;
+	              // var cellVal_cant = oCells.item(5).innerHTML;
+	              // var a = { cellVal : 1 };
+	              // clientearray.push(a);
+	              if (cellVal=="desayuno") {
+	              	var cellVal_cant = cellVal_cant + parseFloat(oCells.item(5).innerHTML);
+	              }
+	              else if (cellVal=="almuerzos") {
+	              	var cellVal_cant2 = cellVal_cant2 + parseFloat(oCells.item(5).innerHTML);
+	              }
+	              else if (cellVal=="Cena") {
+	              	var cellVal_cant3 = cellVal_cant3 + parseFloat(oCells.item(5).innerHTML);
+	              }
+              }
+           }
+    }
 var chart = AmCharts.makeChart("chartdiv", {
   "type": "serial",
   "theme": "none",
@@ -325,20 +368,20 @@ var ids = ["chartdiv"];
       "stack": ["\n"]
     });
     // Let's add a table
-    // layout.content.push({
-    //   "table": {
-    //     // headers are automatically repeated if the table spans over multiple pages
-    //     // you can declare how many rows should be treated as headers
-    //     "headerRows": 1,
-    //     "widths": ["16%", "16%", "16%", "16%", "16%", "*"],
-    //     "body": [
-    //       ["USA", "UK", "Canada", "Japan", "France", "Brazil"],
-    //       ["5000", "4500", "5100", "1500", "9600", "2500"],
-    //       ["5000", "4500", "5100", "1500", "9600", "2500"],
-    //       ["5000", "4500", "5100", "1500", "9600", "2500"]
-    //     ]
-    //   }
-    // });
+    layout.content.push({
+      "table": {
+        // headers are automatically repeated if the table spans over multiple pages
+        // you can declare how many rows should be treated as headers
+        "headerRows": 1,
+        "widths": ["16%", "16%", "16%", "16%", "16%", "*"],
+        "body": [
+          ["Categoria", "Reservas", "Total Platos"],
+          ["Desayuno", ndesa, cellVal_cant],
+          ["Almuerzo", nalmuer, cellVal_cant2],
+          ["Cena", ncena, cellVal_cant3]
+        ]
+      }
+    });
     layout.content.push({
       "stack": ["\n"]
     });
