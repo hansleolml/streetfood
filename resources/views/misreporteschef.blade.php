@@ -166,30 +166,17 @@ $(document).ready(function() {
         'slow');
 	});
 });
-var hola = 0;
 var ndesa= 0;
 var ncena= 0;
 var nalmuer= 0;
-$('#example tr td').each(function() {
-   if(hola%7==3){ //desayuno
-   	var customerId = $(this).text();
-   	if (customerId=="hans quiroz") {
-   		ndesa = ndesa +1 ;
-   	}  
-   	else if (customerId=="alex cordova") {
-   		ncena = ncena +1 ;
-   	} 
-   	else if (customerId=="jose palomino") {
-   		nalmuer = nalmuer +1 ;
-   	}   
-   }
-   hola = hola + 1;
-});
 var clientearray=[];
 	var countarray = 0;
 	var cellVal_cant= 0;
 	var cellVal_cant2= 0;
 	var cellVal_cant3= 0;
+	var cellVal_plat= 0;
+	var cellVal_plat2= 0;
+	var cellVal_plat3= 0;
     var oTable = document.getElementById('example');
 
     //gets rows of table
@@ -218,13 +205,19 @@ var clientearray=[];
 	              // var a = { cellVal : 1 };
 	              // clientearray.push(a);
 	              if (cellVal=="hans quiroz") {
+	              	var cellVal_plat = cellVal_plat + parseFloat(oCells.item(6).innerHTML);
 	              	var cellVal_cant = cellVal_cant + parseFloat(oCells.item(7).innerHTML);
+	              	ndesa = ndesa + 1;
 	              }
 	              else if (cellVal=="alex cordova") {
+	              	var cellVal_plat2 = cellVal_plat2 + parseFloat(oCells.item(6).innerHTML);
 	              	var cellVal_cant2 = cellVal_cant2 + parseFloat(oCells.item(7).innerHTML);
+	              	ncena = ncena + 1;
 	              }
 	              else if (cellVal=="jose palomino") {
+	              	var cellVal_plat3 = cellVal_plat3 + parseFloat(oCells.item(6).innerHTML);
 	              	var cellVal_cant3 = cellVal_cant3 + parseFloat(oCells.item(7).innerHTML);
+	              	nalmuer = nalmuer + 1;
 	              }
               }
            }
@@ -360,6 +353,20 @@ var ids = ["chartdiv"];
     });
   	layout.content.push({
       "stack": ["\n"]
+    });
+    layout.content.push({
+      "table": {
+        // headers are automatically repeated if the table spans over multiple pages
+        // you can declare how many rows should be treated as headers
+        "headerRows": 1,
+        "widths": ["16%", "16%", "16%", "16%", "16%", "*"],
+        "body": [
+          ["Chef", "N° Reservas", "Total Platos","Ganancias"],
+          ["Hans Quiroz", ndesa, cellVal_plat, cellVal_cant],
+          ["Alex Cordova", ncena, cellVal_plat2, cellVal_cant2],
+          ["Jose Palomino", nalmuer, cellVal_plat3, cellVal_cant3],
+        ]
+      }
     });
     layout.content.push({
       "stack": ["\n"]
