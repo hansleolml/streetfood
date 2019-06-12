@@ -45,7 +45,7 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Top de los 10 clientes con más pedidos </h3>
+			    	<h3 class="panel-title">Clientes con más pedidos </h3>
 			  	</div>
 			  	<div class="panel-body">
 					<form class="form-horizontal" role="form" method="POST" action="{{url('reporte/clientes')}}">
@@ -152,9 +152,7 @@ $(document).ready(function() {
 	});
 	$('#example').DataTable( {
         dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+        buttons: ['excel']
     } );
      $("#chartdiv").click(function() {
     	$('html,body').animate({
@@ -372,6 +370,19 @@ var ids = ["chartdiv"];
     });
   	layout.content.push({
       "stack": ["\n"]
+    });
+    layout.content.push({
+      "table": {
+        // headers are automatically repeated if the table spans over multiple pages
+        // you can declare how many rows should be treated as headers
+        "headerRows": 1,
+        "widths": ["16%", "16%", "16%", "16%", "16%", "*"],
+        "body": [
+          ["Cliente", "Reservas", "Total Platos"],
+          ["Jose Palomino", ndesa, cellVal_cant],
+          ["Alex Cordova", ncena, cellVal_cant2]
+        ]
+      }
     });
     layout.content.push({
       "stack": ["\n"]
