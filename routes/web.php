@@ -48,7 +48,7 @@ Route::get('/public',function(){
 });
 
 //ruta de google +
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider');
-    Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
-});
+// Route::group(['prefix' => 'auth'], function () {
+//     Route::get('/{provider}', 'Auth\LoginController@redirectToProvider');
+//     Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+// });
